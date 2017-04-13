@@ -88,6 +88,7 @@ public class RequestHandler {
                 sb.append(s+"\n");
             }
         }catch(Exception e){
+            System.out.println("EXCEPTION" + e.getMessage());
         }
         return sb.toString();
     }
@@ -104,6 +105,7 @@ public class RequestHandler {
                 sb.append(s+"\n");
             }
         }catch(Exception e){
+            System.out.println("EXCEPTION" + e.getMessage());
         }
         return sb.toString();
     }

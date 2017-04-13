@@ -9,101 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ghuidobro.myapplication.MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
-
-    <LinearLayout
-        android:id="@+id/llPicker"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <NumberPicker
-            android:id="@+id/numberpicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"/>
-
-        <NumberPicker
-            android:id="@+id/numberpicker_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"/>
-
-        <NumberPicker
-            android:id="@+id/numberpicker_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llResult"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:layout_marginTop="230dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:textSize="18dp" />
-        <TextView
-            android:id="@+id/result_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:textSize="18dp" />
-        <TextView
-            android:id="@+id/result_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:textSize="18dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llInfo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:layout_marginTop="270dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/labelAttempts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textSize="18dp" />
-
-        <TextView
-            android:id="@+id/attempts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textSize="18dp" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imgProfilePic"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
+    tools:context="autentificacion.AuthMainActivity">
 
     <TextView
         android:id="@+id/txtName"
@@ -122,15 +28,6 @@
         android:layout_marginTop="400dp"
         android:padding="5dp"
         android:textSize="18dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/btn_try"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:text="Try"
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
 
