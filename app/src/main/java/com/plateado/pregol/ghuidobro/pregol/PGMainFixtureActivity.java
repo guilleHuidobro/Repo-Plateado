@@ -1,4 +1,4 @@
-package fixture;
+package com.plateado.pregol.ghuidobro.pregol;
 
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
-import com.plateado.pregol.ghuidobro.pregol.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -291,7 +290,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         mDataSet.clear();
 
         try{
-            JSONArray list = states.getJSONArray("fixture");
+            JSONArray list = states.getJSONArray("com/plateado/pregol/ghuidobro/pregol/fixture");
 
             for(int i=0; i<list.length(); i++) {
                 JSONObject stateobj = list.getJSONObject(i);

@@ -1,4 +1,4 @@
-package fixture;
+package com.plateado.pregol.ghuidobro.pregol;
 
 import android.content.Context;
 import android.content.res.TypedArray;

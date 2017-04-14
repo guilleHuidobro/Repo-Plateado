@@ -1,4 +1,4 @@
-package fixture;
+package com.plateado.pregol.ghuidobro.pregol;
 
 import java.io.Serializable;
 

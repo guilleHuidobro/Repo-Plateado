@@ -1,4 +1,4 @@
-package autentificacion;
+package com.plateado.pregol.ghuidobro.pregol;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.plateado.pregol.ghuidobro.pregol.R;
+
 
 /**
  * Created by ghuidobro on 4/12/17.
