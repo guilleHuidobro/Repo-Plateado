@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewAllEmployee"></activity>
+        <activity android:name=".PGMainFixtureActivity"></activity>
     </application>
 
 </manifest>

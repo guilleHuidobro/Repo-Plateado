@@ -131,9 +131,10 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
 
                 RequestHandler rh = new RequestHandler();
 
-                String s = rh.sendPostRequest(Config.URL_UPDATE_EMP,hashMap);
+                //String s = rh.sendPostRequest(Config.URL_UPDATE_EMP,hashMap);
 
-                return s;
+                //return s;
+                return null;
             }
         }
 

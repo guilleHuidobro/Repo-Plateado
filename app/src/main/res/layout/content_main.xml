@@ -47,5 +47,14 @@
         android:text="@string/btn_logout_from_google"
         android:visibility="gone" />
 
+    <Button
+        android:id="@+id/btn_fixture"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true"
+        android:text="jugar"
+        android:visibility="gone" />
+
 
 </RelativeLayout>

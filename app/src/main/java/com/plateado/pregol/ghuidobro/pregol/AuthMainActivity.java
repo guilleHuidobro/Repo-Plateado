@@ -28,7 +28,7 @@ public class AuthMainActivity extends AppCompatActivity
 
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignIn;
-    private Button btnSignOut;
+    private Button btnSignOut,btnFixture;
     private TextView txtName, txtEmail;
     private static final int RC_SIGN_IN = 007;
     private Boolean isnumberValid=false;
@@ -45,6 +45,7 @@ public class AuthMainActivity extends AppCompatActivity
 
         btnSignIn = (SignInButton) findViewById(R.id.sign_in_button);
         btnSignOut = (Button) findViewById(R.id.btn_sign_out);
+        btnFixture = (Button) findViewById(R.id.btn_fixture);
 
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
@@ -52,7 +53,7 @@ public class AuthMainActivity extends AppCompatActivity
 
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
-
+        btnFixture.setOnClickListener(this);
 
 
         // Configure sign-in to request the user's ID, email address, and basic
@@ -123,9 +124,16 @@ public class AuthMainActivity extends AppCompatActivity
                 signOut();
                 break;
 
+            case R.id.btn_fixture:
+                goFixture();
+                break;
         }
     }
 
+    private void goFixture() {
+        Intent intent = new Intent(this, PGMainFixtureActivity.class);
+        startActivity(intent);
+    }
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -175,12 +183,15 @@ public class AuthMainActivity extends AppCompatActivity
             btnSignOut.setVisibility(View.VISIBLE);
             txtName.setVisibility(View.VISIBLE);
             txtEmail.setVisibility(View.VISIBLE);
+            btnFixture.setVisibility(View.VISIBLE);
+
 
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
             txtName.setVisibility(View.GONE);
             txtEmail.setVisibility(View.GONE);
+            btnFixture.setVisibility(View.GONE);
 
         }
     }

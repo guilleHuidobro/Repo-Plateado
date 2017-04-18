@@ -1,5 +1,6 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.swipe.util.Attributes;
 
@@ -51,12 +53,12 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ImageView iconApp;
     private FloatingActionButton fab;
-    HashMap<Integer, String> prediccion ;
+    HashMap<String, HashMap> prediccion ;
     SwipeRecyclerViewAdapter mAdapter;
     private String sendMessage = "La prediccion no esta completa ¡";
     private boolean isOKToSend = false;
     private JSONObject prediccionJson;
-
+    ArrayList<HashMap> aList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,8 +158,9 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
         loadData();
         prediccion = new HashMap<>();
+        aList = new ArrayList<>();
         // Creating Adapter object
-        mAdapter = new SwipeRecyclerViewAdapter(this, mDataSet,prediccion);
+        mAdapter = new SwipeRecyclerViewAdapter(this, mDataSet,prediccion,aList);
 
 
         // Setting Mode to Single to reveal bottom View for one item in List
@@ -184,12 +187,41 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private void sendData(){
 
         if(mAdapter.prediccion.size() == 15){
-            prediccion = (HashMap<Integer, String>) mAdapter.prediccion;
+            prediccion = (HashMap<String, HashMap>) mAdapter.prediccion;
             isOKToSend = true;
 
-            for (Map.Entry<Integer, String> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, HashMap> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
+
+
+            class AddFixture extends AsyncTask<Void,Void,String> {
+
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(PGMainFixtureActivity.this,"Enviando...","Un momento...",false,false);
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(PGMainFixtureActivity.this,s, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendPostRequest(Config.URL_ADD, prediccion);
+                    return res;
+                }
+            }
+
+            AddFixture addFixture = new AddFixture();
+            addFixture.execute();
 
         }else{
             isOKToSend = false;
@@ -290,7 +322,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         mDataSet.clear();
 
         try{
-            JSONArray list = states.getJSONArray("com/plateado/pregol/ghuidobro/pregol/fixture");
+            JSONArray list = states.getJSONArray("fixture");
 
             for(int i=0; i<list.length(); i++) {
                 JSONObject stateobj = list.getJSONObject(i);

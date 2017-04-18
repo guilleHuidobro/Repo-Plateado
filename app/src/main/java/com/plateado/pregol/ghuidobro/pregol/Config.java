@@ -18,6 +18,11 @@ public class Config {
     public static final String KEY_EMP_DESG = "desg";
     public static final String KEY_EMP_SAL = "salary";
 
+    public static final String KEY_FIX_PARTIDO = "partido";
+    public static final String KEY_FIX_RESULTADO = "resultado";
+    public static final String KEY_FIX_FECHA = "fecha";
+    public static final String KEY_FIX_USUARIO = "usuario";
+
     //JSON Tags
     public static final String TAG_JSON_ARRAY="result";
     public static final String TAG_ID = "id";

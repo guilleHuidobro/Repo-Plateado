@@ -73,8 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 params.put(Config.KEY_EMP_SAL,sal);
 
                 RequestHandler rh = new RequestHandler();
-                String res = rh.sendPostRequest(Config.URL_ADD, params);
-                return res;
+                //String res = rh.sendPostRequest(Config.URL_ADD, params);
+                //return res;
+                return null;
             }
         }
 

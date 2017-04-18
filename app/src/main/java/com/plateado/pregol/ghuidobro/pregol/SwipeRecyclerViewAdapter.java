@@ -24,12 +24,14 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
     private Context mContext;
     private ArrayList<PGFixture> fixtureList;
-    Map<Integer, String> prediccion;
+    Map<String, HashMap> prediccion;
+    private ArrayList<HashMap> aList = new ArrayList<>();
 
-    public SwipeRecyclerViewAdapter(Context context, ArrayList<PGFixture> objects, HashMap prediccion) {
+    public SwipeRecyclerViewAdapter(Context context, ArrayList<PGFixture> objects, HashMap prediccion,ArrayList aList) {
         this.mContext = context;
         this.fixtureList = objects;
         this.prediccion = prediccion;
+        this.aList = aList;
     }
 
     @Override
@@ -132,7 +134,18 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionEmpate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put(item.getIdPartido(), "EMPATE");
+                HashMap<String,String> params = new HashMap<>();
+                //prediccion.put(item.getIdPartido(), "EMPATE");
+
+                params.put(Config.KEY_FIX_RESULTADO,"EMPATE");
+                params.put(Config.KEY_FIX_FECHA, "19");
+                params.put(Config.KEY_FIX_USUARIO,"guille@gmail");
+                params.put(Config.KEY_FIX_PARTIDO, String.valueOf(item.getIdPartido()));
+
+                //aList.add(params);
+
+                prediccion.put( String.valueOf(item.getIdPartido()),params);
+
                 checkPredictionSize();
                 Toast.makeText(view.getContext(), "Elegiste Empate ", Toast.LENGTH_SHORT).show();
             }
@@ -141,7 +154,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put(item.getIdPartido(),  viewHolder.equipoLocal.getText().toString());
+               // prediccion.put(item.getIdPartido(),  viewHolder.equipoLocal.getText().toString());
                 checkPredictionSize();
                 Toast.makeText(view.getContext(), "Gana Local "+ viewHolder.equipoLocal.getText().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -151,7 +164,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionVisita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put(item.getIdPartido(),  viewHolder.equipoVisita.getText().toString());
+                //prediccion.put(item.getIdPartido(),  viewHolder.equipoVisita.getText().toString());
                 checkPredictionSize();
                 Toast.makeText(view.getContext(), "Gana Visitante " + viewHolder.equipoVisita.getText().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -167,12 +180,12 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
         boolean isFill = false;
 
-        if(prediccion.size() == fixtureList.size()){
+        if(prediccion.size() >= fixtureList.size()){
             isFill = true;
         }
 
         if (isFill){
-            for (Map.Entry<Integer, String> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, HashMap> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
         }else{
