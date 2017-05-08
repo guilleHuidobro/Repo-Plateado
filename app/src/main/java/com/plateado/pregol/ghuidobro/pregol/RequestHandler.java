@@ -1,5 +1,7 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.support.annotation.NonNull;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -25,7 +27,7 @@ public class RequestHandler {
     //First argument is the URL of the script to which we will send the request
     //Other is an HashMap with name value pairs containing the data to be send with the request
     public String sendPostRequest(String requestURL,
-                                  HashMap<String, HashMap> postDataParams) {
+                                  HashMap<String, Integer> postDataParams) {
         //Creating a URL
         URL url;
 
@@ -110,10 +112,11 @@ public class RequestHandler {
         return sb.toString();
     }
 
-    private String getPostDataString(HashMap<String, HashMap> params) throws UnsupportedEncodingException {
+    @NonNull
+    private String getPostDataString(HashMap<String, Integer> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         boolean first = true;
-        for (Map.Entry<String, HashMap> entry : params.entrySet()) {
+        for (Map.Entry<String, Integer> entry : params.entrySet()) {
             if (first)
                 first = false;
             else

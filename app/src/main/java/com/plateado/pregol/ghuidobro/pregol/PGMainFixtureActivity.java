@@ -53,7 +53,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ImageView iconApp;
     private FloatingActionButton fab;
-    HashMap<String, HashMap> prediccion ;
+    HashMap<String, Integer> prediccion ;
     SwipeRecyclerViewAdapter mAdapter;
     private String sendMessage = "La prediccion no esta completa ¡";
     private boolean isOKToSend = false;
@@ -187,10 +187,10 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private void sendData(){
 
         if(mAdapter.prediccion.size() == 15){
-            prediccion = (HashMap<String, HashMap>) mAdapter.prediccion;
+            prediccion = (HashMap<String, Integer>) mAdapter.prediccion;
             isOKToSend = true;
 
-            for (Map.Entry<String, HashMap> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, Integer> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
 

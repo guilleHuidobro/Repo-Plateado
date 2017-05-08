@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
-import com.plateado.pregol.ghuidobro.pregol.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
     private Context mContext;
     private ArrayList<PGFixture> fixtureList;
-    Map<String, HashMap> prediccion;
+    Map<String, Integer> prediccion;
     private ArrayList<HashMap> aList = new ArrayList<>();
 
     public SwipeRecyclerViewAdapter(Context context, ArrayList<PGFixture> objects, HashMap prediccion,ArrayList aList) {
@@ -137,14 +136,10 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
                 HashMap<String,String> params = new HashMap<>();
                 //prediccion.put(item.getIdPartido(), "EMPATE");
 
-                params.put(Config.KEY_FIX_RESULTADO,"EMPATE");
-                params.put(Config.KEY_FIX_FECHA, "19");
-                params.put(Config.KEY_FIX_USUARIO,"guille@gmail");
-                params.put(Config.KEY_FIX_PARTIDO, String.valueOf(item.getIdPartido()));
-
+                //params.put(Config.KEY_FIX_RESULTADO,"EMPATE");
                 //aList.add(params);
 
-                prediccion.put( String.valueOf(item.getIdPartido()),params);
+                prediccion.put( String.valueOf(item.getIdPartido()),0);
 
                 checkPredictionSize();
                 Toast.makeText(view.getContext(), "Elegiste Empate ", Toast.LENGTH_SHORT).show();
@@ -185,7 +180,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         }
 
         if (isFill){
-            for (Map.Entry<String, HashMap> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, Integer> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
         }else{
