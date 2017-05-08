@@ -132,6 +132,7 @@ public class AuthMainActivity extends AppCompatActivity
 
     private void goFixture() {
         Intent intent = new Intent(this, PGMainFixtureActivity.class);
+        intent.putExtra("mail",txtEmail.getText().toString());
         startActivity(intent);
     }
 
