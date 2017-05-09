@@ -122,7 +122,7 @@
                 android:id="@+id/equipoLocal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="#00a40a"
+                android:background="@color/green_primary"
                 android:gravity="center"
                 android:text="River Plate"
                 android:textColor="#fff"
@@ -131,7 +131,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="#005800"
+                android:background="@color/green_secondary"
                 android:gravity="center"
                 android:text="VS"
                 android:textColor="#fff"

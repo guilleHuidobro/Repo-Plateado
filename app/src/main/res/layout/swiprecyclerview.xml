@@ -38,7 +38,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="150dp"
-            android:src="@drawable/pregol_icono"
+            android:src="@mipmap/rsz_1balon_de_oro_icono"
             android:visibility="gone" />
 
         <TextView

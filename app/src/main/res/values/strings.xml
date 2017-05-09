@@ -39,6 +39,8 @@
     <string name="web_url">http://67.23.251.165/~jarol/coneccion.php</string>
     <string name="web_url_fixture">http://67.23.251.165/~jarol/fixture.php</string>
     <string name="label_espera_datos">Por el momento no hay datos</string>
+    <string name="welcome_label">Para jugar es necesario registrarse</string>
+
 
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>

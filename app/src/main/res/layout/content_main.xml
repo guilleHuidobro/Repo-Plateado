@@ -31,6 +31,26 @@
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/appNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:padding="5dp"
+        android:textSize="26dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/welcomeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:padding="5dp"
+        android:textSize="18dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
@@ -55,6 +75,15 @@
         android:layout_centerHorizontal="true"
         android:text="jugar"
         android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/sign_in_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:src="@mipmap/rsz_1balon_de_oro_icono" />
 
 
 </RelativeLayout>

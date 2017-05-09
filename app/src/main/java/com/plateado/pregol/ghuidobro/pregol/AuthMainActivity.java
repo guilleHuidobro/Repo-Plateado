@@ -29,7 +29,7 @@ public class AuthMainActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignIn;
     private Button btnSignOut,btnFixture;
-    private TextView txtName, txtEmail;
+    private TextView txtName, txtEmail,welcomeLabel,appNameLabel;
     private static final int RC_SIGN_IN = 007;
     private Boolean isnumberValid=false;
 
@@ -49,7 +49,11 @@ public class AuthMainActivity extends AppCompatActivity
 
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
+        welcomeLabel = (TextView) findViewById(R.id.welcomeLabel);
+        appNameLabel = (TextView) findViewById(R.id.appNameLabel);
 
+        welcomeLabel.setText(R.string.welcome_label);
+        appNameLabel.setText(R.string.app_name);
 
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
@@ -185,6 +189,8 @@ public class AuthMainActivity extends AppCompatActivity
             txtName.setVisibility(View.VISIBLE);
             txtEmail.setVisibility(View.VISIBLE);
             btnFixture.setVisibility(View.VISIBLE);
+            welcomeLabel.setVisibility(View.GONE);
+            appNameLabel.setVisibility(View.GONE);
 
 
         } else {
@@ -193,6 +199,8 @@ public class AuthMainActivity extends AppCompatActivity
             txtName.setVisibility(View.GONE);
             txtEmail.setVisibility(View.GONE);
             btnFixture.setVisibility(View.GONE);
+            welcomeLabel.setVisibility(View.VISIBLE);
+            appNameLabel.setVisibility(View.VISIBLE);
 
         }
     }

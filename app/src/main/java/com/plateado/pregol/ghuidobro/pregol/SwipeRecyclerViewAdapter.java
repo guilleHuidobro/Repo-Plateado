@@ -133,25 +133,16 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionEmpate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String,String> params = new HashMap<>();
-                //prediccion.put(item.getIdPartido(), "EMPATE");
-
-                //params.put(Config.KEY_FIX_RESULTADO,"EMPATE");
-                //aList.add(params);
-
                 prediccion.put( String.valueOf(item.getIdPartido()),"0");
-
                 checkPredictionSize();
-                Toast.makeText(view.getContext(), "Elegiste Empate ", Toast.LENGTH_SHORT).show();
             }
         });
 
         viewHolder.opcionLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // prediccion.put(item.getIdPartido(),  viewHolder.equipoLocal.getText().toString());
+                prediccion.put( String.valueOf(item.getIdPartido()),"1");
                 checkPredictionSize();
-                Toast.makeText(view.getContext(), "Gana Local "+ viewHolder.equipoLocal.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -159,9 +150,8 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionVisita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //prediccion.put(item.getIdPartido(),  viewHolder.equipoVisita.getText().toString());
+                prediccion.put( String.valueOf(item.getIdPartido()),"2");
                 checkPredictionSize();
-                Toast.makeText(view.getContext(), "Gana Visitante " + viewHolder.equipoVisita.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

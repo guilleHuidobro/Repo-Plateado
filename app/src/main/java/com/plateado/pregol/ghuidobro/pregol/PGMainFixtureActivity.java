@@ -156,7 +156,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("   PREGOL");
 
-            getSupportActionBar().setIcon(R.drawable.pregol_icono);
+            getSupportActionBar().setIcon(R.mipmap.rsz_1balon_de_oro_icono);
         }
 
         loadData();
