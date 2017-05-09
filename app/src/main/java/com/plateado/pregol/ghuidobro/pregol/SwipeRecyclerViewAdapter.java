@@ -23,7 +23,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
     private Context mContext;
     private ArrayList<PGFixture> fixtureList;
-    Map<String, Integer> prediccion;
+    Map<String, String> prediccion;
     private ArrayList<HashMap> aList = new ArrayList<>();
 
     public SwipeRecyclerViewAdapter(Context context, ArrayList<PGFixture> objects, HashMap prediccion,ArrayList aList) {
@@ -139,7 +139,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
                 //params.put(Config.KEY_FIX_RESULTADO,"EMPATE");
                 //aList.add(params);
 
-                prediccion.put( String.valueOf(item.getIdPartido()),0);
+                prediccion.put( String.valueOf(item.getIdPartido()),"0");
 
                 checkPredictionSize();
                 Toast.makeText(view.getContext(), "Elegiste Empate ", Toast.LENGTH_SHORT).show();
@@ -180,7 +180,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         }
 
         if (isFill){
-            for (Map.Entry<String, Integer> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, String> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
         }else{

@@ -27,7 +27,7 @@ public class RequestHandler {
     //First argument is the URL of the script to which we will send the request
     //Other is an HashMap with name value pairs containing the data to be send with the request
     public String sendPostRequest(String requestURL,
-                                  HashMap<String, Integer> postDataParams) {
+                                  HashMap<String, String> postDataParams) {
         //Creating a URL
         URL url;
 
@@ -113,10 +113,10 @@ public class RequestHandler {
     }
 
     @NonNull
-    private String getPostDataString(HashMap<String, Integer> params) throws UnsupportedEncodingException {
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         boolean first = true;
-        for (Map.Entry<String, Integer> entry : params.entrySet()) {
+        for (Map.Entry<String, String> entry : params.entrySet()) {
             if (first)
                 first = false;
             else

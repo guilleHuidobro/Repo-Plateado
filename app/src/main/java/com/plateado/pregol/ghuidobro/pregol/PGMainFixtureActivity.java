@@ -53,12 +53,13 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ImageView iconApp;
     private FloatingActionButton fab;
-    HashMap<String, Integer> prediccion ;
+    HashMap<String, String> prediccion ;
     SwipeRecyclerViewAdapter mAdapter;
     private String sendMessage = "La prediccion no esta completa ¡";
     private boolean isOKToSend = false;
     private JSONObject prediccionJson;
     ArrayList<HashMap> aList;
+    String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,8 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         emptyView = (TextView) findViewById(R.id.empty_view);
         iconApp = (ImageView) findViewById(R.id.iconApp);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        usuario = getIntent().getStringExtra("mail");
 
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -187,10 +190,12 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private void sendData(){
 
         if(mAdapter.prediccion.size() == 15){
-            prediccion = (HashMap<String, Integer>) mAdapter.prediccion;
+            prediccion = (HashMap<String, String>) mAdapter.prediccion;
+            prediccion.put("fecha","19");
+            prediccion.put("usuario",usuario);
             isOKToSend = true;
 
-            for (Map.Entry<String, Integer> entry : prediccion.entrySet()) {
+            for (Map.Entry<String, String> entry : prediccion.entrySet()) {
                 System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
 
