@@ -60,6 +60,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     private JSONObject prediccionJson;
     ArrayList<HashMap> aList;
     String usuario;
+    ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,7 +165,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         prediccion = new HashMap<>();
         aList = new ArrayList<>();
         // Creating Adapter object
-        mAdapter = new SwipeRecyclerViewAdapter(this, mDataSet,prediccion,aList);
+        mAdapter = new SwipeRecyclerViewAdapter(this, itemPredictions,prediccion,aList);
 
 
         // Setting Mode to Single to reveal bottom View for one item in List
@@ -243,12 +244,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             fab.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
             iconApp.setVisibility(View.VISIBLE);
+            appLogo.setVisibility(View.VISIBLE);
 
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
             fab.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
             iconApp.setVisibility(View.GONE);
+            appLogo.setVisibility(View.GONE);
 
         }
     }
@@ -319,8 +322,24 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
             convertFixtureJSONtoArrayList(jsonObject);
+
+
+
+            for (PGFixture item:mDataSet) {
+                ItemPrediction itemPrediction = new ItemPrediction();
+                itemPrediction.setPgFixture(item);
+                itemPrediction.setEstado(ItemPrediction.SIN_ESTADO);
+                itemPredictions.add(itemPrediction);
+            }
+
+            mAdapter.notifyDataSetChanged();
+
         }//end of onPostExecute
     }//end of
+
+
+
+
     private void convertFixtureJSONtoArrayList(JSONObject states){
 
         //fixtureList.clear();

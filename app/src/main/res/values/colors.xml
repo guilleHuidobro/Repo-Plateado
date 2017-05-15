@@ -36,10 +36,10 @@
     <color name="md_deep_orange_A400">#FF3D00</color>
     <color name="md_deep_orange_A700">#DD2600</color>
 
-    <color name="blue_primary">#004183</color>
     <color name="gold_primary">#a97f00</color>
     <color name="green_secondary">#005800</color>
     <color name="green_primary">#00a40a</color>
     <color name="contraste_primary">#7D5D25</color>
-
+    <color name="neutral">#8e8e8e</color>
+    <color name="green_block">#004400</color>
 </resources>

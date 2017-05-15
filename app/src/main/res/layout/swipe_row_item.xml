@@ -17,7 +17,7 @@
         android:weightSum="3">
 
         <TextView
-            android:id="@+id/opcionLocal"
+            android:id="@+id/opcionLocalInfo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -28,7 +28,7 @@
 
 
         <TextView
-            android:id="@+id/opcionEmpate"
+            android:id="@+id/opcionEmpateInfo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/opcionVisita"
+            android:id="@+id/opcionVisitaInfo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -118,33 +118,34 @@
                 android:textColor="#fff"
                 android:layout_weight="0.5"/>
 
-            <TextView
-                android:id="@+id/equipoLocal"
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@color/green_primary"
-                android:gravity="center"
-                android:text="River Plate"
+                android:text="Atletico Tucuman"
+                android:textSize="10sp"
                 android:textColor="#fff"
-                android:layout_weight="1.75"/>
+                android:gravity="center"
+                android:background="@drawable/roundedbuttonequipo"
+                android:layout_weight="2"
+                android:id="@+id/equipoLocal" />
 
-            <TextView
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="E"
+                android:textColor="#fff"
+                android:background = "@drawable/roundedbuttonempate"
+                android:id="@+id/opcionEmpate" />
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@color/green_secondary"
-                android:gravity="center"
-                android:text="VS"
+                android:text="Defensa y Justicia"
+                android:textSize="10sp"
                 android:textColor="#fff"
-                android:layout_weight="0.5"/>
-            <TextView
-                android:id="@+id/equipoVisita"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="#00a40a"
                 android:gravity="center"
-                android:text="Boca Juniors"
-                android:textColor="#fff"
-                android:layout_weight="1.75"/>
+                android:background="@drawable/roundedbuttonequipo"
+                android:layout_weight="2"
+                android:id="@+id/equipoVisita" />
             <ImageView
                 android:id="@+id/escudoVisita"
                 android:layout_width="0dp"
@@ -156,7 +157,6 @@
                 android:textColor="#fff"
                 android:layout_weight="0.5"/>
         </LinearLayout>
-
 
 
     </LinearLayout>

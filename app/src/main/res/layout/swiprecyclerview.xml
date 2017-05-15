@@ -37,25 +37,29 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="120dp"
             android:src="@mipmap/rsz_1balon_de_oro_icono"
             android:visibility="gone" />
+
         <ImageView
             android:id="@+id/app_logo"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="170dp"
-            android:src="@drawable/app_logo"
+            android:layout_width="180dp"
+            android:layout_height="90dp"
             android:layout_below="@+id/iconApp"
-            android:visibility="gone"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/app_logo"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="90dp"
             android:gravity="center"
+            android:textColor="@color/contraste_primary"
             android:text="@string/label_espera_datos"
             android:textSize="25dp"
+            android:layout_marginTop="0dp"
             android:visibility="gone" />
 
 

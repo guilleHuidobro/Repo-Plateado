@@ -1,10 +1,12 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,11 +24,11 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
 
     private Context mContext;
-    private ArrayList<PGFixture> fixtureList;
+    private ArrayList<ItemPrediction> fixtureList;
     Map<String, String> prediccion;
     private ArrayList<HashMap> aList = new ArrayList<>();
 
-    public SwipeRecyclerViewAdapter(Context context, ArrayList<PGFixture> objects, HashMap prediccion,ArrayList aList) {
+    public SwipeRecyclerViewAdapter(Context context, ArrayList<ItemPrediction> objects, HashMap prediccion,ArrayList aList) {
         this.mContext = context;
         this.fixtureList = objects;
         this.prediccion = prediccion;
@@ -41,19 +43,38 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
     @Override
     public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
-        final PGFixture item = fixtureList.get(position);
+        final ItemPrediction item = fixtureList.get(position);
 
-        viewHolder.equipoLocal.setText((item.getEquipoLocal()));
-        viewHolder.equipoVisita.setText((item.getEquipoVisita()));
+        viewHolder.equipoLocal.setText((item.getPgFixture().getEquipoLocal()));
+        viewHolder.equipoVisita.setText((item.getPgFixture().getEquipoVisita()));
+        viewHolder.opcionEmpate.setText(("E"));
+
+        if(item.getEstado() == ItemPrediction.EMPATE ){
+        viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
+        viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+        viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+        }else if(item.getEstado() == ItemPrediction.LOCAL){
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+        }else if(item.getEstado() == ItemPrediction.VISITA){
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
+        }else{
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_secondary));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
+        }
 
 
 
         Picasso.with(mContext)
-                .load(item.getImagenEquipoLocal().toString())
+                .load(item.getPgFixture().getImagenEquipoLocal().toString())
                 .into(viewHolder.escudoLocal);
 
         Picasso.with(mContext)
-                .load(item.getImagenEquipoVisita().toString())
+                .load(item.getPgFixture().getImagenEquipoVisita().toString())
                 .into(viewHolder.escudoVisita);
 
 
@@ -130,28 +151,56 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         });
 
 
+        viewHolder.opcionEmpateInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Todo lo necesario para apostar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        viewHolder.opcionLocalInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Todo lo necesario para apostar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        viewHolder.opcionVisitaInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Todo lo necesario para apostar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         viewHolder.opcionEmpate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put( String.valueOf(item.getIdPartido()),"0");
+                prediccion.put( String.valueOf(item.getPgFixture().getIdPartido()),"0");
                 checkPredictionSize();
+                item.setEstado(ItemPrediction.EMPATE);
+                notifyDataSetChanged();
             }
         });
 
-        viewHolder.opcionLocal.setOnClickListener(new View.OnClickListener() {
+        viewHolder.equipoLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put( String.valueOf(item.getIdPartido()),"1");
+                prediccion.put( String.valueOf(item.getPgFixture().getIdPartido()),"1");
                 checkPredictionSize();
+                item.setEstado(ItemPrediction.LOCAL);
+                notifyDataSetChanged();
             }
         });
 
 
-        viewHolder.opcionVisita.setOnClickListener(new View.OnClickListener() {
+        viewHolder.equipoVisita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prediccion.put( String.valueOf(item.getIdPartido()),"2");
+                prediccion.put( String.valueOf(item.getPgFixture().getIdPartido()),"2");
                 checkPredictionSize();
+                item.setEstado(ItemPrediction.VISITA);
+                notifyDataSetChanged();
             }
         });
 
@@ -196,12 +245,13 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
         SwipeLayout swipeLayout;
         TextView horario;
-        TextView opcionVisita;
-        TextView opcionLocal;
-        TextView opcionEmpate;
+        TextView opcionVisitaInfo;
+        TextView opcionLocalInfo;
+        TextView opcionEmpateInfo;
         ImageButton btnInfoBet;
-        TextView equipoLocal;
-        TextView equipoVisita;
+        Button equipoLocal;
+        Button equipoVisita;
+        Button opcionEmpate;
         ImageView escudoLocal;
         ImageView escudoVisita;
 
@@ -210,12 +260,13 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
             super(itemView);
             swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
             horario = (TextView) itemView.findViewById(R.id.horario);
-            opcionVisita = (TextView) itemView.findViewById(R.id.opcionVisita);
-            opcionLocal = (TextView) itemView.findViewById(R.id.opcionLocal);
-            opcionEmpate = (TextView) itemView.findViewById(R.id.opcionEmpate);
+            opcionVisitaInfo = (TextView) itemView.findViewById(R.id.opcionVisitaInfo);
+            opcionLocalInfo = (TextView) itemView.findViewById(R.id.opcionLocalInfo);
+            opcionEmpateInfo = (TextView) itemView.findViewById(R.id.opcionEmpateInfo);
             btnInfoBet = (ImageButton) itemView.findViewById(R.id.btnInfoBet);
-            equipoLocal = (TextView) itemView.findViewById(R.id.equipoLocal);
-            equipoVisita = (TextView) itemView.findViewById(R.id.equipoVisita);
+            equipoLocal = (Button) itemView.findViewById(R.id.equipoLocal);
+            equipoVisita = (Button) itemView.findViewById(R.id.equipoVisita);
+            opcionEmpate = (Button) itemView.findViewById(R.id.opcionEmpate);
             escudoLocal = (ImageView) itemView.findViewById(R.id.escudoLocal);
             escudoVisita = (ImageView) itemView.findViewById(R.id.escudoVisita);
 
