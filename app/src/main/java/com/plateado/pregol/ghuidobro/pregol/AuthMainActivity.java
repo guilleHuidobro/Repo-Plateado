@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
@@ -29,9 +30,9 @@ public class AuthMainActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignIn;
     private Button btnSignOut,btnFixture;
-    private TextView txtName, txtEmail,welcomeLabel,appNameLabel;
+    private TextView txtName, txtEmail,welcomeLabel;
     private static final int RC_SIGN_IN = 007;
-    private Boolean isnumberValid=false;
+    private ImageView bienvenidoLogo;
 
 
     @Override
@@ -50,6 +51,7 @@ public class AuthMainActivity extends AppCompatActivity
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
         welcomeLabel = (TextView) findViewById(R.id.welcomeLabel);
+        bienvenidoLogo = (ImageView) findViewById(R.id.bienvenido_logo);
 
         welcomeLabel.setText(R.string.welcome_label);
 
@@ -188,6 +190,7 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.VISIBLE);
             btnFixture.setVisibility(View.VISIBLE);
             welcomeLabel.setVisibility(View.GONE);
+            bienvenidoLogo.setVisibility(View.VISIBLE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
@@ -195,7 +198,7 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.GONE);
             btnFixture.setVisibility(View.GONE);
             welcomeLabel.setVisibility(View.VISIBLE);
-
+            bienvenidoLogo.setVisibility(View.GONE);
         }
     }
 }

@@ -11,13 +11,25 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AuthMainActivity">
 
+    <ImageView
+        android:id="@+id/bienvenido_logo"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_fixture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:visibility="gone"
+        android:src="@drawable/bienvenido_logo" />
+
     <TextView
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="400dp"
+        android:textColor="@color/contraste_primary"
         android:padding="5dp"
         android:textSize="20dp"
+        android:text="Guillermo"
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
 
@@ -25,18 +37,20 @@
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="440dp"
+        android:textColor="@color/contraste_primary"
         android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="80dp"
         android:src="@drawable/app_logo"
         android:layout_below="@+id/balon_app_logo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
 
     <TextView
         android:id="@+id/welcomeLabel"
@@ -59,9 +73,9 @@
         android:id="@+id/btn_sign_out"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        app:backgroundTint="#ffe730"
-        android:textColor="#7D5D25"
+        android:layout_marginTop="470dp"
+        android:backgroundTint="#a97f00"
+        android:textColor="#fff"
         android:layout_centerHorizontal="true"
         android:text="@string/btn_logout_from_google"
         android:visibility="gone" />
@@ -72,8 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"
-        app:backgroundTint="#ffe730"
-        android:textColor="#7D5D25"
+        android:backgroundTint="#a97f00"
+        android:textColor="#fff"
         android:text="jugar"
         android:visibility="gone" />
 
