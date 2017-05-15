@@ -50,10 +50,8 @@ public class AuthMainActivity extends AppCompatActivity
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
         welcomeLabel = (TextView) findViewById(R.id.welcomeLabel);
-        appNameLabel = (TextView) findViewById(R.id.appNameLabel);
 
         welcomeLabel.setText(R.string.welcome_label);
-        appNameLabel.setText(R.string.app_name);
 
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
@@ -190,9 +188,6 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.VISIBLE);
             btnFixture.setVisibility(View.VISIBLE);
             welcomeLabel.setVisibility(View.GONE);
-            appNameLabel.setVisibility(View.GONE);
-
-
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
@@ -200,7 +195,6 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.GONE);
             btnFixture.setVisibility(View.GONE);
             welcomeLabel.setVisibility(View.VISIBLE);
-            appNameLabel.setVisibility(View.VISIBLE);
 
         }
     }

@@ -51,7 +51,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
     private TextView emptyView;
     private RecyclerView mRecyclerView;
-    private ImageView iconApp;
+    private ImageView iconApp,appLogo;
     private FloatingActionButton fab;
     HashMap<String, String> prediccion ;
     SwipeRecyclerViewAdapter mAdapter;
@@ -68,6 +68,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         emptyView = (TextView) findViewById(R.id.empty_view);
         iconApp = (ImageView) findViewById(R.id.iconApp);
+        appLogo = (ImageView) findViewById(R.id.app_logo);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         usuario = getIntent().getStringExtra("mail");
@@ -154,9 +155,9 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("   PREGOL");
-
+            getSupportActionBar().setTitle("   MONYGOL");
             getSupportActionBar().setIcon(R.mipmap.rsz_1balon_de_oro_icono);
+
         }
 
         loadData();
@@ -338,12 +339,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                 fab.setVisibility(View.GONE);
                 emptyView.setVisibility(View.VISIBLE);
                 iconApp.setVisibility(View.VISIBLE);
+                appLogo.setVisibility(View.VISIBLE);
 
             } else {
                 mRecyclerView.setVisibility(View.VISIBLE);
                 fab.setVisibility(View.VISIBLE);
                 emptyView.setVisibility(View.GONE);
                 iconApp.setVisibility(View.GONE);
+                appLogo.setVisibility(View.GONE);
             }
 
         }catch(JSONException e){

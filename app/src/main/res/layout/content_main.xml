@@ -27,25 +27,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
         android:padding="5dp"
-        android:textSize="18dp"
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/appNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:padding="5dp"
-        android:textSize="26dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:src="@drawable/app_logo"
+        android:layout_below="@+id/balon_app_logo"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/welcomeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="400dp"
         android:padding="5dp"
         android:textSize="18dp"
         android:layout_centerHorizontal="true"
@@ -63,6 +60,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="430dp"
+        app:backgroundTint="#ffe730"
+        android:textColor="#7D5D25"
         android:layout_centerHorizontal="true"
         android:text="@string/btn_logout_from_google"
         android:visibility="gone" />
@@ -71,13 +70,15 @@
         android:id="@+id/btn_fixture"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"
+        app:backgroundTint="#ffe730"
+        android:textColor="#7D5D25"
         android:text="jugar"
         android:visibility="gone" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/balon_app_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_below="@+id/sign_in_button"

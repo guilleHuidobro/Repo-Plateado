@@ -40,7 +40,15 @@
             android:layout_marginTop="150dp"
             android:src="@mipmap/rsz_1balon_de_oro_icono"
             android:visibility="gone" />
-
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="170dp"
+            android:src="@drawable/app_logo"
+            android:layout_below="@+id/iconApp"
+            android:visibility="gone"
+            android:layout_gravity="center" />
         <TextView
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
