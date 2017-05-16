@@ -62,7 +62,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
             viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
             viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
         }else{
-            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_secondary));
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_empate));
             viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
             viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
         }

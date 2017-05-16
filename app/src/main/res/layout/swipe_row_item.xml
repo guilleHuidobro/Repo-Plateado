@@ -134,7 +134,7 @@
                 android:layout_height="50dp"
                 android:text="E"
                 android:textColor="#fff"
-                android:background = "@drawable/roundedbuttonempate"
+                android:background="@drawable/roundedbuttonempate"
                 android:id="@+id/opcionEmpate" />
             <Button
                 android:layout_width="0dp"

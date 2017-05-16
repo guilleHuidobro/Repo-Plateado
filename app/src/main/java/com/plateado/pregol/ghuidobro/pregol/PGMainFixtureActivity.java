@@ -217,7 +217,6 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                     super.onPostExecute(s);
                     loading.dismiss();
                     Intent intent = new Intent(PGMainFixtureActivity.this, PGPagoActivity.class);
-
                     startActivity(intent);
                 }
 
