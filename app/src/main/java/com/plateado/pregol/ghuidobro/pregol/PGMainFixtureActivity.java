@@ -1,6 +1,7 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.swipe.util.Attributes;
 
@@ -216,7 +216,9 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                 protected void onPostExecute(String s) {
                     super.onPostExecute(s);
                     loading.dismiss();
-                    Toast.makeText(PGMainFixtureActivity.this,s, Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(PGMainFixtureActivity.this, PGPagoActivity.class);
+
+                    startActivity(intent);
                 }
 
                 @Override

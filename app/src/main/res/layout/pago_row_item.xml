@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    swipe:leftEdgeSwipeOffset="0dp"
+    swipe:rightEdgeSwipeOffset="0dp">
+
+    <!-- Another Bottom View For Left to Right -->
+
+    <LinearLayout
+        android:id="@+id/bottom_wrapper1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+    </LinearLayout>
+
+    <!-- Top View,  Row itemView of RecyclerView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/bottom_wrappe2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="5">
+
+            <ImageView
+                android:id="@+id/escudoLocal"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left"
+                android:background="#fff"
+                android:foregroundGravity="left"
+                android:gravity="left"
+                android:src="@drawable/ic_launcher"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/equipoLocal"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:text="Atletico Tucuman"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/opcionEmpate"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="VS"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/equipoVisita"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:text="Defensa y Justicia"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/escudoVisita"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#fff"
+                android:src="@drawable/ic_launcher"
+                android:textColor="#fff" />
+
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:text="E"
+                android:textColor="#fff"
+                android:background = "@drawable/roundedbutton"
+                android:id="@+id/resultadoBoton" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</com.daimajia.swipe.SwipeLayout>
+
