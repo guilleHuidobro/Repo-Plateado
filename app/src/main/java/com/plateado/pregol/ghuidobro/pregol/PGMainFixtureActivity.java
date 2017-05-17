@@ -2,11 +2,9 @@ package com.plateado.pregol.ghuidobro.pregol;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +61,8 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     String usuario;
     ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
 
+    private FABToolbarLayout morph;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,9 +79,11 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Item Decorator:
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        //mRecyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         // mRecyclerView.setItemAnimator(new FadeInLeftAnimator());
 
+
+        /*
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setBackgroundTintList(getResources().getColorStateList(R.color.green_secondary));
@@ -104,7 +107,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }
 
         });
-
+*/
 /*
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setScaleX(0);
@@ -154,6 +157,53 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }
         });
 */
+
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+
+        View uno, dos, tres, cuatro;
+
+        uno = findViewById(R.id.uno);
+        dos = findViewById(R.id.dos);
+        cuatro = findViewById(R.id.cuatro);
+        tres = findViewById(R.id.tres);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.fab) {
+                    morph.show();
+                }
+                morph.hide();
+            }
+        });
+        uno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morph.hide();
+            }
+        });
+        dos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morph.hide();
+            }
+        });
+        tres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morph.hide();
+            }
+        });
+        cuatro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morph.hide();
+            }
+        });
+
+
         mDataSet = new ArrayList<PGFixture>();
 
         if (toolbar != null) {
@@ -244,14 +294,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
         if (mDataSet.isEmpty()) {
             mRecyclerView.setVisibility(View.GONE);
-            fab.setVisibility(View.GONE);
+            //fab.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
             iconApp.setVisibility(View.VISIBLE);
             appLogo.setVisibility(View.VISIBLE);
 
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
-            fab.setVisibility(View.VISIBLE);
+            //fab.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
             iconApp.setVisibility(View.GONE);
             appLogo.setVisibility(View.GONE);
@@ -358,14 +408,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);
-                fab.setVisibility(View.GONE);
+                //fab.setVisibility(View.GONE);
                 emptyView.setVisibility(View.VISIBLE);
                 iconApp.setVisibility(View.VISIBLE);
                 appLogo.setVisibility(View.VISIBLE);
 
             } else {
                 mRecyclerView.setVisibility(View.VISIBLE);
-                fab.setVisibility(View.VISIBLE);
+                //fab.setVisibility(View.VISIBLE);
                 emptyView.setVisibility(View.GONE);
                 iconApp.setVisibility(View.GONE);
                 appLogo.setVisibility(View.GONE);

@@ -34,4 +34,5 @@ dependencies {
     // This dude gave a shoutout to you (daimajia) on his github page:
     // compile 'jp.wasabeef:recyclerview-animators:1.0.3@aar'
     compile 'com.google.android.gms:play-services-auth:9.2.1'
+    compile 'com.github.fafaldo:fab-toolbar:1.2.0'
 }
