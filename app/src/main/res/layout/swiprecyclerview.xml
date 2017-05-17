@@ -141,7 +141,7 @@
                 android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha" />
 
             <ImageView
-                android:id="@+id/tres"
+                android:id="@+id/send_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
