@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -40,15 +41,6 @@ import java.util.Map;
  */
 public class PGMainFixtureActivity extends AppCompatActivity {
 
-    /**
-     * RecyclerView: The new recycler view replaces the list view. Its more modular and therefore we
-     * must implement some of the functionality ourselves and attach it to our recyclerview.
-     * <p/>
-     * 1) Position items on the screen: This is done with LayoutManagers
-     * 2) Animate & Decorate views: This is done with ItemAnimators & ItemDecorators
-     * 3) Handle any touch events apart from scrolling: This is now done in our adapter's ViewHolder
-     */
-
     private ArrayList<PGFixture> mDataSet;
 
     private Toolbar toolbar;
@@ -61,12 +53,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     SwipeRecyclerViewAdapter mAdapter;
     private String sendMessage = "La prediccion no esta completa !";
     private boolean isOKToSend = false;
-    private JSONObject prediccionJson;
     ArrayList<HashMap> aList;
     String usuario;
     ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
 
     private FABToolbarLayout morph;
+
+    private Handler handler;
+    private ProgressDialog loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +73,10 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         usuario = getIntent().getStringExtra("mail");
+
+        handler = new Handler();
+
+
 
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -198,7 +196,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         sendIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                sendData();
                 if(isOKToSend){
                     sendMessage = "Se envio con exito!";
                 }
@@ -217,8 +215,6 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                     tv.setGravity(Gravity.CENTER_HORIZONTAL);
                 }
                 snack.show();
-                sendData();
-
             }
         });
         cuatro.setOnClickListener(new View.OnClickListener() {
@@ -281,18 +277,20 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
             class AddFixture extends AsyncTask<Void,Void,String> {
 
-                ProgressDialog loading;
+
 
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
-                    loading = ProgressDialog.show(PGMainFixtureActivity.this,"Enviando...","Un momento...",false,false);
+                    new Thread(new Task()).start();
                 }
 
                 @Override
                 protected void onPostExecute(String s) {
                     super.onPostExecute(s);
-                    loading.dismiss();
+                    if(loading != null){
+                        loading.dismiss();
+                    }
                     Intent intent = new Intent(PGMainFixtureActivity.this, PGPagoActivity.class);
                     startActivity(intent);
                 }
@@ -316,17 +314,19 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
     public void onResume(){
         super.onResume();
-
+        if(loading != null){
+            loading.dismiss();
+        }
         if (mDataSet.isEmpty()) {
             mRecyclerView.setVisibility(View.GONE);
-            //fab.setVisibility(View.GONE);
+            fab.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
             iconApp.setVisibility(View.VISIBLE);
             appLogo.setVisibility(View.VISIBLE);
 
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
-            //fab.setVisibility(View.VISIBLE);
+            fab.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
             iconApp.setVisibility(View.GONE);
             appLogo.setVisibility(View.GONE);
@@ -417,10 +417,24 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
 
 
+    private class Task implements Runnable {
+        @Override
+        public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        loading = ProgressDialog.show(PGMainFixtureActivity.this, "Enviando...", "Un momento...", false, false);
+                    }
+                });
+        }
+    }
 
     private void convertFixtureJSONtoArrayList(JSONObject states){
-
-        //fixtureList.clear();
 
         mDataSet.clear();
 
@@ -433,14 +447,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);
-                //fab.setVisibility(View.GONE);
+                fab.setVisibility(View.GONE);
                 emptyView.setVisibility(View.VISIBLE);
                 iconApp.setVisibility(View.VISIBLE);
                 appLogo.setVisibility(View.VISIBLE);
 
             } else {
                 mRecyclerView.setVisibility(View.VISIBLE);
-                //fab.setVisibility(View.VISIBLE);
+                fab.setVisibility(View.VISIBLE);
                 emptyView.setVisibility(View.GONE);
                 iconApp.setVisibility(View.GONE);
                 appLogo.setVisibility(View.GONE);
