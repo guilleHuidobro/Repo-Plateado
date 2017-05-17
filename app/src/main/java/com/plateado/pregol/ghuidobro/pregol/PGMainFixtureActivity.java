@@ -98,7 +98,9 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                         .setAction("Action", null);
                 View snackbarView = snack.getView();
                 snackbarView.setBackgroundColor(Color.parseColor("#005800"));
+                snackbarView.setMinimumHeight(60);
                 snack.show();
+                finish();
             }
 
         });
@@ -375,6 +377,4 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         }//end of catch
 
     }//end of convertJSONArrayList
-
-
 }

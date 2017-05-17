@@ -1,5 +1,6 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -197,5 +198,10 @@ public class PGPagoActivity extends AppCompatActivity {
 
     }//end of convertJSONArrayList
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(PGPagoActivity.this, PGMainFixtureActivity.class);
+        startActivity(intent);
+    }
 }

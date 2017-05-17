@@ -42,5 +42,6 @@
     <color name="contraste_primary">#7D5D25</color>
     <color name="neutral">#8e8e8e</color>
     <color name="green_block">#004400</color>
-    <color name="green_empate">#7fa900</color>
+    <color name="green_empate">#008b08</color>
+    <color name="selected_contraste_letra">#a92b00</color>
 </resources>

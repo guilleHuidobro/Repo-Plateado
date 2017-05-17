@@ -53,14 +53,17 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
         viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
         viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+
         }else if(item.getEstado() == ItemPrediction.LOCAL){
             viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
             viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
             viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
+
         }else if(item.getEstado() == ItemPrediction.VISITA){
             viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
             viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_block));
             viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.gold_primary));
+
         }else{
             viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_empate));
             viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
