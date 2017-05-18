@@ -1,5 +1,6 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -180,6 +181,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                confirmFireMissiles();
                 morph.hide();
             }
         });
@@ -306,6 +308,12 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             isOKToSend = false;
         }
 
+    }
+
+
+    public void confirmFireMissiles() {
+        DialogFragment newFragment = new InfoDialogFragment();
+        newFragment.show(getFragmentManager(),"");
     }
 
     public void onResume(){

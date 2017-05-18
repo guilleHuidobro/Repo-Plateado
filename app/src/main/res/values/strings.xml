@@ -45,6 +45,7 @@
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>
     <string name="loading">Loading...</string>
+    <string name="info_message">En esta pantalla se eligen los resultados luego se envian a la base de datos pasamos a otra pagina para que elijas si queres participar por un fondo o competir sanamente.</string>
 
 
 </resources>

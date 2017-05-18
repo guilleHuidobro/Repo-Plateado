@@ -1,6 +1,8 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -16,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
@@ -51,6 +54,9 @@ public class PGPagoActivity extends AppCompatActivity {
     private boolean isOKToSend = false;
     private ProgressDialog loading;
     private Handler handler;
+
+    final Context context = this;
+    private Button mbutton;
 
     View uno, dos, sendIcon, cuatro;
 
@@ -115,9 +121,15 @@ public class PGPagoActivity extends AppCompatActivity {
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                confirmFireMissiles();
                 morph.hide();
+
             }
         });
+
+
+
+
         dos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,6 +167,12 @@ public class PGPagoActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void confirmFireMissiles() {
+        DialogFragment newFragment = new InfoDialogFragment();
+        newFragment.show(getFragmentManager(),"");
+    }
+
 
 
     public void onResume(){
@@ -349,12 +367,5 @@ public class PGPagoActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(PGPagoActivity.this, PGMainFixtureActivity.class);
-        startActivity(intent);
     }
 }
