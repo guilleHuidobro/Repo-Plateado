@@ -58,9 +58,10 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
 
     private FABToolbarLayout morph;
-
     private Handler handler;
     private ProgressDialog loading;
+
+    View uno, dos, sendIcon, cuatro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +72,18 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         iconApp = (ImageView) findViewById(R.id.iconApp);
         appLogo = (ImageView) findViewById(R.id.app_logo);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+        sendIcon = findViewById(R.id.send_icon);
+
+        uno = findViewById(R.id.uno);
+        dos = findViewById(R.id.dos);
+        cuatro = findViewById(R.id.cuatro);
+
 
         usuario = getIntent().getStringExtra("mail");
 
         handler = new Handler();
-
-
 
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -160,17 +167,6 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }
         });
 */
-
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
-
-        View uno, dos, sendIcon, cuatro;
-
-        uno = findViewById(R.id.uno);
-        dos = findViewById(R.id.dos);
-        cuatro = findViewById(R.id.cuatro);
-        sendIcon = findViewById(R.id.send_icon);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,14 +315,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         }
         if (mDataSet.isEmpty()) {
             mRecyclerView.setVisibility(View.GONE);
-            fab.setVisibility(View.GONE);
+            morph.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
             iconApp.setVisibility(View.VISIBLE);
             appLogo.setVisibility(View.VISIBLE);
 
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
-            fab.setVisibility(View.VISIBLE);
+            morph.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
             iconApp.setVisibility(View.GONE);
             appLogo.setVisibility(View.GONE);
@@ -447,14 +443,14 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);
-                fab.setVisibility(View.GONE);
+                morph.setVisibility(View.GONE);
                 emptyView.setVisibility(View.VISIBLE);
                 iconApp.setVisibility(View.VISIBLE);
                 appLogo.setVisibility(View.VISIBLE);
 
             } else {
                 mRecyclerView.setVisibility(View.VISIBLE);
-                fab.setVisibility(View.VISIBLE);
+                morph.setVisibility(View.VISIBLE);
                 emptyView.setVisibility(View.GONE);
                 iconApp.setVisibility(View.GONE);
                 appLogo.setVisibility(View.GONE);

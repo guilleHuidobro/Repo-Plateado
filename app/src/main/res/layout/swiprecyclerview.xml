@@ -96,7 +96,8 @@
         app:hideDuration="600"
         app:horizontalMargin="20dp"
         app:showDuration="600"
-        app:verticalMargin="10dp">
+        app:verticalMargin="10dp"
+        android:visibility="gone">
 
 
         <RelativeLayout
@@ -105,14 +106,13 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.FloatingActionButton
-                app:layout_behavior="com.plateado.pregol.ghuidobro.pregol.FAB_Float_on_Scroll"
                 android:id="@id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/abc_ic_menu_share_mtrl_alpha"
                 app:backgroundTint="@color/primary"
                 app:borderWidth="0dp"
-                app:fabSize="normal" />
+                app:fabSize="normal"/>
 
         </RelativeLayout>
 
