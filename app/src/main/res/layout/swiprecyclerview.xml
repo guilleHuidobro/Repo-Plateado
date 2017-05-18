@@ -130,15 +130,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
-
-            <ImageView
-                android:id="@+id/dos"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha" />
+                android:src="@drawable/informacion24" />
 
             <ImageView
                 android:id="@+id/send_icon"
@@ -146,7 +138,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/abc_ic_menu_selectall_mtrl_alpha" />
+                android:src="@drawable/aceptar24" />
+
+            <ImageView
+                android:id="@+id/dos"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/eliminar24" />
 
             <ImageView
                 android:id="@+id/cuatro"
@@ -154,7 +154,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/abc_ic_menu_cut_mtrl_alpha" />
+                android:src="@drawable/rehacer24" />
 
         </LinearLayout>
 
