@@ -21,7 +21,7 @@ public class InfoDialogFragment extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.info_custom_dialog, null))
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cerrar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         InfoDialogFragment.this.getDialog().cancel();
                     }

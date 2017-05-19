@@ -181,7 +181,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                confirmFireMissiles();
+                callInfodialog();
                 morph.hide();
             }
         });
@@ -311,7 +311,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
     }
 
 
-    public void confirmFireMissiles() {
+    public void callInfodialog() {
         DialogFragment newFragment = new InfoDialogFragment();
         newFragment.show(getFragmentManager(),"");
     }

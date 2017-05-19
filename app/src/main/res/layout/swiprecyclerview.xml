@@ -49,7 +49,7 @@
             android:layout_below="@+id/iconApp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
-            android:src="@drawable/app_logo"
+            android:src="@drawable/app_logo360"
             android:visibility="gone" />
 
         <TextView

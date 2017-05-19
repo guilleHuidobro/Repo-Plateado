@@ -4,22 +4,16 @@ import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
@@ -121,7 +115,7 @@ public class PGPagoActivity extends AppCompatActivity {
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                confirmFireMissiles();
+                callInfoDialog();
                 morph.hide();
 
             }
@@ -139,25 +133,8 @@ public class PGPagoActivity extends AppCompatActivity {
         sendIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendData();
-                if(isOKToSend){
-                    sendMessage = "Se envio con exito!";
-                }
+                callPagoDialog();
                 morph.hide();
-
-                Snackbar snack = Snackbar.make(view, sendMessage, Snackbar.LENGTH_LONG);
-                View snackbarView = snack.getView();
-                snackbarView.setBackgroundColor(Color.parseColor("#a92b00"));
-                snackbarView.setMinimumHeight(210);
-                TextView tv = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-                tv.setTextColor(ContextCompat.getColor(PGPagoActivity.this, R.color.window_background));
-                tv.setTextSize(20);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                }else {
-                    tv.setGravity(Gravity.CENTER_HORIZONTAL);
-                }
-                snack.show();
             }
         });
         cuatro.setOnClickListener(new View.OnClickListener() {
@@ -168,8 +145,13 @@ public class PGPagoActivity extends AppCompatActivity {
         });
     }
 
-    public void confirmFireMissiles() {
+    public void callInfoDialog() {
         DialogFragment newFragment = new InfoDialogFragment();
+        newFragment.show(getFragmentManager(),"");
+    }
+
+    public void callPagoDialog() {
+        DialogFragment newFragment = new PagoDialogFragment();
         newFragment.show(getFragmentManager(),"");
     }
 
