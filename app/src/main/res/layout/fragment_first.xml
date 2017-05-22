@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <com.google.android.gms.common.SignInButton
+        android:layout_gravity="center"
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </com.google.android.gms.common.SignInButton>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/bienvenido_logo"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:src="@drawable/bienvenido_logo"/>
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_fixture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Menu 1"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:backgroundTint="#a97f00"
+        android:textColor="#fff"
+        android:text="jugar"
+        android:visibility="visible" />
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/welcomeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="welcome"
+        android:textColor="@color/contraste_primary"
+        android:textSize="25dp"
+        android:visibility="visible"
+        android:layout_marginTop="13dp" />
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/contraste_primary"
+        android:textSize="20dp"
+        android:text="Guillermo garcia huidobro"
+        android:visibility="visible" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/contraste_primary"
+        android:text="Email"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#a97f00"
+        android:text="@string/btn_logout_from_google"
+        android:textColor="#fff"
+        android:visibility="visible" />
+</LinearLayout>
