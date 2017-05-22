@@ -36,6 +36,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.2.1'
     compile 'com.github.fafaldo:fab-toolbar:1.2.0'
     compile('com.mercadopago:sdk:2.3.6@aar') { transitive = true }
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
 }
