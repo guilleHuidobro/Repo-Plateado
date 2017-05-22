@@ -77,13 +77,13 @@ public class MGMainActivity extends AppCompatActivity
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_camera:
-                fragment = new FirstFragment();
+                fragment = new AuthFragment();
                 break;
             case R.id.nav_gallery:
-                fragment = new FirstFragment();
+                fragment = new PGMainFixtureFragment();
                 break;
             case R.id.nav_send:
-                fragment = new FirstFragment();
+                fragment = new PGPagoFragment();
                 break;
         }
 

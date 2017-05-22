@@ -26,7 +26,7 @@ import com.google.android.gms.common.api.Status;
  * Created by ghuidobro on 5/22/17.
  */
 
-public class FirstFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+public class AuthFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignIn;
