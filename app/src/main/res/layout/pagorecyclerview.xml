@@ -12,6 +12,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/infoPagoLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/selected_contraste"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/infoPagoText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="No se ha registrado pago"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_view"
             android:layout_width="match_parent"
@@ -47,7 +65,7 @@
                 android:id="@id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/abc_ic_menu_share_mtrl_alpha"
+                android:src="@drawable/soccerball24"
                 app:backgroundTint="@color/primary"
                 app:borderWidth="0dp"
                 app:fabSize="normal"/>

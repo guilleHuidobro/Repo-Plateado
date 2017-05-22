@@ -19,6 +19,9 @@
     <color name="primary">#a97f00</color>
     <color name="primaryDark">#a97f00</color>
 
+    <color name="dorado_1">#f5b507</color>
+    <color name="dorado_2">#ffd321</color>
+    <color name="dorado_3">#ffe730</color>
 
     <!--deep orange-->
     <color name="md_deep_orange_50">#FBE9A7</color>

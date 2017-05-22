@@ -62,6 +62,7 @@ public class PagoDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 submit(v);
+                d.dismiss();
             }
         });
         buttonCancelar.setOnClickListener(new View.OnClickListener()
@@ -97,4 +98,5 @@ public class PagoDialogFragment extends DialogFragment {
                 .startCheckoutActivity();
 
     }
+
 }

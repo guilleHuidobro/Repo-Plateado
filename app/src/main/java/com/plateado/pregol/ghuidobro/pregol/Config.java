@@ -12,6 +12,8 @@ public class Config {
     public static final String URL_UPDATE_EMP = "http://67.23.251.165/~jarol/new/updateEmp.php";
     public static final String URL_DELETE_EMP = "http://67.23.251.165/~jarol/new/deleteEmp.php?id=";
 
+    public static final String URL_FIX = "http://67.23.251.165/~jarol/fixture.php";
+
     //Keys that will be used to send the request to php scripts
     public static final String KEY_EMP_ID = "id";
     public static final String KEY_EMP_NAME = "name";
@@ -24,8 +26,8 @@ public class Config {
     public static final String KEY_FIX_USUARIO = "usuario";
 
     //JSON Tags
-    public static final String TAG_JSON_ARRAY="result";
-    public static final String TAG_ID = "id";
+    public static final String TAG_JSON_ARRAY="fixture";
+    public static final String TAG_ID = "id_partido";
     public static final String TAG_NAME = "name";
     public static final String TAG_DESG = "desg";
     public static final String TAG_SAL = "salary";

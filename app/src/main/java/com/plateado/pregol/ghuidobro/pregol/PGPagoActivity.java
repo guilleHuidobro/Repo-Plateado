@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,9 +15,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
+import com.mercadopago.core.MercadoPago;
+import com.mercadopago.exceptions.MPException;
+import com.mercadopago.model.Payment;
+import com.mercadopago.util.JsonUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +54,7 @@ public class PGPagoActivity extends AppCompatActivity {
     private boolean isOKToSend = false;
     private ProgressDialog loading;
     private Handler handler;
+    private View infoPagoLL;
 
     final Context context = this;
     private Button mbutton;
@@ -62,6 +69,7 @@ public class PGPagoActivity extends AppCompatActivity {
         morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
         sendIcon = findViewById(R.id.send_icon);
         fab = (FloatingActionButton) findViewById(R.id.fab);
+        infoPagoLL = findViewById(R.id.infoPagoLL);
 
         uno = findViewById(R.id.uno);
         dos = findViewById(R.id.dos);
@@ -348,6 +356,40 @@ public class PGPagoActivity extends AppCompatActivity {
                     loading = ProgressDialog.show(PGPagoActivity.this, "Enviando...", "Un momento...", false, false);
                 }
             });
+        }
+    }
+
+    // Espera los resultados del checkout
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+
+        if (requestCode == MercadoPago.CHECKOUT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK && data != null) {
+
+                // Listo! El pago ya fue procesado por MP.
+                Payment payment = JsonUtil.getInstance()
+                        .fromJson(data.getStringExtra("payment"), Payment.class);
+
+                TextView results = (TextView) findViewById(R.id.infoPagoText);
+
+                if (payment != null) {
+
+                    infoPagoLL.setBackgroundColor(Color.parseColor("#008b08"));
+
+                    results.setText("Tu pago ha sido registrado estas participando !!!");
+                } else {
+                    infoPagoLL.setBackgroundColor(Color.parseColor("#a92b00"));
+                    results.setText("No se ha confirmado el pago.");
+                }
+
+            } else {
+                if ((data != null) && (data.hasExtra("mpException"))) {
+                    MPException mpException = JsonUtil.getInstance()
+                            .fromJson(data.getStringExtra("mpException"), MPException.class);
+                    // Manejá tus errores.
+                }
+            }
         }
     }
 }

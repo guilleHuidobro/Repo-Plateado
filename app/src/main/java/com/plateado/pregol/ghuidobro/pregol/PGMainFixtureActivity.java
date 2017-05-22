@@ -195,14 +195,18 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendData();
+                String colorSnackbar = "";
                 if(isOKToSend){
                     sendMessage = "Se envio con exito!";
+                    colorSnackbar = "#008b08";
+                }else{
+                    colorSnackbar = "#a92b00";
                 }
                 morph.hide();
 
                 Snackbar snack = Snackbar.make(view, sendMessage, Snackbar.LENGTH_LONG);
                 View snackbarView = snack.getView();
-                snackbarView.setBackgroundColor(Color.parseColor("#a92b00"));
+                snackbarView.setBackgroundColor(Color.parseColor(colorSnackbar.toString()));
                 snackbarView.setMinimumHeight(210);
                 TextView tv = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
                 tv.setTextColor(ContextCompat.getColor(PGMainFixtureActivity.this, R.color.window_background));

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    swipe:leftEdgeSwipeOffset="0dp"
+    swipe:rightEdgeSwipeOffset="0dp">
+
+    <!--Bottom View For Right to Left-->
+
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/opcionLocalInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#a97f00"
+            android:gravity="center"
+            android:text="Local"
+            android:textColor="#fff" />
+
+
+        <TextView
+            android:id="@+id/opcionEmpateInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#7f5f00"
+            android:gravity="center"
+            android:text="Empatan"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/opcionVisitaInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#a97f00"
+            android:gravity="center"
+            android:text="Visita"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+
+    <!-- Another Bottom View For Left to Right -->
+
+    <LinearLayout
+        android:id="@+id/bottom_wrapper1"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <ImageButton
+            android:id="@+id/btnInfoBet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:src="@drawable/icon_info_bet" />
+
+        <TextView
+            android:id="@+id/labelApostar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Apuestas"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Top View,  Row itemView of RecyclerView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/horario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Partido con horario a confirmar"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/bottom_wrappe2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="5">
+
+            <ImageView
+                android:id="@+id/escudoLocal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_launcher"
+                android:textColor="#fff"
+                android:layout_weight="0.5"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Atletico Tucuman"
+                android:textSize="10sp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:background="@drawable/roundedbuttonequipo"
+                android:layout_weight="2"
+                android:id="@+id/equipoLocal" />
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="E"
+                android:textColor="#fff"
+                android:background = "@drawable/roundedbuttonempate"
+                android:id="@+id/opcionEmpate" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Defensa y Justicia"
+                android:textSize="10sp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:background="@drawable/roundedbuttonequipo"
+                android:layout_weight="2"
+                android:id="@+id/equipoVisita" />
+            <ImageView
+                android:id="@+id/escudoVisita"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_launcher"
+                android:textColor="#fff"
+                android:layout_weight="0.5"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</com.daimajia.swipe.SwipeLayout>
+

@@ -56,12 +56,12 @@ public class ViewAllEmployee extends AppCompatActivity implements ListView.OnIte
             e.printStackTrace();
         }
 
-        ListAdapter adapter = new SimpleAdapter(
-                ViewAllEmployee.this, list, R.layout.list_item,
-                new String[]{Config.TAG_ID,Config.TAG_NAME},
-                new int[]{R.id.id, R.id.name});
+       // ListAdapter adapter = new SimpleAdapter(
+                //ViewAllEmployee.this, list, R.layout.list_item,
+              //  new String[]{Config.TAG_ID,Config.TAG_NAME},
+                //new int[]{R.id.id, R.id.name});
 
-        listView.setAdapter(adapter);
+      //  listView.setAdapter(adapter);
     }
 
     private void getJSON(){
