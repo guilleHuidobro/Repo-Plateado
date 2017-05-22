@@ -3,7 +3,12 @@ package com.plateado.pregol.ghuidobro.pregol;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,7 +30,7 @@ import com.google.android.gms.common.api.Status;
  * Created by ghuidobro on 4/12/17.
  */
 public class AuthMainActivity extends AppCompatActivity
-        implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+        implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,NavigationView.OnNavigationItemSelectedListener{
 
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignIn;
@@ -200,5 +205,10 @@ public class AuthMainActivity extends AppCompatActivity
             welcomeLabel.setVisibility(View.VISIBLE);
             bienvenidoLogo.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }

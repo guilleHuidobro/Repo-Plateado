@@ -41,6 +41,8 @@
     <string name="label_espera_datos">Por el momento no hay datos</string>
     <string name="welcome_label">Para jugar es necesario registrarse</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>
