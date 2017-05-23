@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
     private Button btnSignOut,btnFixture;
     private TextView txtName, txtEmail,welcomeLabel;
     private static final int RC_SIGN_IN = 007;
-    private ImageView bienvenidoLogo;
+    private ImageView bienvenidoLogo,iconApp,appLogo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,8 +52,10 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
 
         txtName = (TextView) fragmentView.findViewById(R.id.txtName);
         txtEmail = (TextView) fragmentView.findViewById(R.id.txtEmail);
-        welcomeLabel = (TextView) fragmentView.findViewById(R.id.welcomeLabel);
+        welcomeLabel = (TextView) fragmentView.findViewById(R.id.welcome_label);
         bienvenidoLogo = (ImageView) fragmentView.findViewById(R.id.bienvenido_logo);
+        iconApp = (ImageView) fragmentView.findViewById(R.id.iconApp);
+        appLogo = (ImageView) fragmentView.findViewById(R.id.app_logo);
 
         welcomeLabel.setText(R.string.welcome_label);
 
@@ -127,17 +130,21 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
                 break;
 
             case R.id.btn_fixture:
-                //goFixture();
+                goFixture();
                 break;
         }
     }
-/*
+
     private void goFixture() {
-        Intent intent = new Intent(this, PGMainFixtureActivity.class);
-        intent.putExtra("mail",txtEmail.getText().toString());
-        startActivity(intent);
+        Fragment fragment = null;
+        fragment = new PGMainFixtureFragment();
+        if (fragment != null) {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
     }
-*/
+
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -189,6 +196,8 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
             btnFixture.setVisibility(View.VISIBLE);
             welcomeLabel.setVisibility(View.GONE);
             bienvenidoLogo.setVisibility(View.VISIBLE);
+            iconApp.setVisibility(View.GONE);
+            appLogo.setVisibility(View.GONE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
@@ -197,6 +206,8 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
             btnFixture.setVisibility(View.GONE);
             welcomeLabel.setVisibility(View.VISIBLE);
             bienvenidoLogo.setVisibility(View.GONE);
+            iconApp.setVisibility(View.VISIBLE);
+            appLogo.setVisibility(View.VISIBLE);
         }
     }
 

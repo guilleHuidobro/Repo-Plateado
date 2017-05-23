@@ -34,7 +34,7 @@ public class MGMainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_camera);
+        displaySelectedScreen(R.id.nav_inicio);
     }
 
     @Override
@@ -76,13 +76,13 @@ public class MGMainActivity extends AppCompatActivity
 
         //initializing the fragment object which is selected
         switch (itemId) {
-            case R.id.nav_camera:
+            case R.id.nav_inicio:
                 fragment = new AuthFragment();
                 break;
-            case R.id.nav_gallery:
+            case R.id.nav_jugar:
                 fragment = new PGMainFixtureFragment();
                 break;
-            case R.id.nav_send:
+            case R.id.nav_pagos:
                 fragment = new PGPagoFragment();
                 break;
         }
