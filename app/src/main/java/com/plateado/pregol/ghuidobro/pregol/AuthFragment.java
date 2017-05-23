@@ -39,7 +39,7 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View fragmentView = inflater.inflate(R.layout.fragment_first, container, false);
+        final View fragmentView = inflater.inflate(R.layout.auth_view, container, false);
 
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = (SignInButton) fragmentView.findViewById(R.id.sign_in_button);
