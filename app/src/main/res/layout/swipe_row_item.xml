@@ -21,9 +21,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#a97f00"
+            android:background="@color/interrrogacion_info"
             android:gravity="center"
-            android:text="Local"
+            android:text="Info Local"
             android:textColor="#fff" />
 
 
@@ -32,9 +32,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#7f5f00"
+            android:background="@color/interrrogacion_info"
             android:gravity="center"
-            android:text="Empatan"
+            android:text="Estadisticas"
             android:textColor="#fff" />
 
         <TextView
@@ -42,9 +42,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#a97f00"
+            android:background="@color/interrrogacion_info"
             android:gravity="center"
-            android:text="Visita"
+            android:text="Info Visita"
             android:textColor="#fff" />
     </LinearLayout>
 
@@ -122,7 +122,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Atletico Tucuman"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:background="@drawable/roundedbuttonequipo"
@@ -140,7 +140,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Defensa y Justicia"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:background="@drawable/roundedbuttonequipo"

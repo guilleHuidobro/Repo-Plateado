@@ -5,6 +5,7 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class PagoDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final Dialog d = new Dialog(getActivity());
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         d.setContentView(R.layout.pago_custom_dialog);
 
         buttonPagar = (Button) d.findViewById(R.id.buttonPagar);

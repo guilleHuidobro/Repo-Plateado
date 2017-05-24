@@ -65,7 +65,7 @@
                 android:id="@id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/soccerball24"
+                android:src="@drawable/futbol24"
                 app:backgroundTint="@color/gold_primary"
                 app:borderWidth="0dp"
                 app:fabSize="normal"/>
@@ -87,7 +87,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/informacion24" />
+                android:src="@drawable/acerca24" />
 
             <ImageView
                 android:id="@+id/send_icon"
@@ -95,7 +95,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/apostar24" />
+                android:src="@drawable/moneybag24" />
 
             <ImageView
                 android:id="@+id/dos"
@@ -103,7 +103,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/eliminar24" />
+                android:src="@drawable/delete24" />
 
             <ImageView
                 android:id="@+id/cuatro"
@@ -111,7 +111,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/rehacer24" />
+                android:src="@drawable/futbol24" />
 
         </LinearLayout>
 

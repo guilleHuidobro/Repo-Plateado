@@ -9,11 +9,15 @@
         <item
             android:id="@+id/nav_jugar"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="jugar" />
+            android:title="Jugar" />
         <item
             android:id="@+id/nav_pagos"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="pagos" />
+            android:title="Pagos" />
+        <item
+            android:id="@+id/nav_estadistica"
+            android:icon="@drawable/pelotaverdemenu24"
+            android:title="EStadisticas" />
     </group>
 
 </menu>
