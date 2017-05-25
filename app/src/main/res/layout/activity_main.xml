@@ -27,7 +27,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="120dp"
-            android:src="@mipmap/rsz_1balon_de_oro_icono"
+            android:src="@drawable/appiconoazul190"
             android:visibility="gone" />
 
         <ImageView
@@ -37,7 +37,7 @@
             android:layout_below="@+id/iconApp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
-            android:src="@drawable/app_logo360"
+            android:src="@drawable/app_logo"
             android:visibility="gone" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:gravity="center"
-            android:textColor="@color/contraste_primary"
+            android:textColor="@color/app_tercer_color"
             android:text="@string/label_espera_datos"
             android:textSize="25dp"
             android:layout_marginTop="0dp"

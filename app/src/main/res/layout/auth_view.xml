@@ -7,66 +7,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/iconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/appiconoazul190" />
+
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/app_logo" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/app_tercer_color"
+        android:textSize="25dp"
+        android:text="Guillermo garcia huidobro"
+        android:layout_marginTop="20dp"
+        android:visibility="visible" />
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_fixture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0047c9"
+        android:textColor="#fff"
+        android:text="jugar"
+        android:layout_marginTop="40dp"
+        android:visibility="visible" />
+
     <com.google.android.gms.common.SignInButton
         android:layout_gravity="center"
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="40dp">
     </com.google.android.gms.common.SignInButton>
 
-    <ImageView
-        android:layout_gravity="center"
-        android:id="@+id/bienvenido_logo"
-        android:layout_width="210dp"
-        android:layout_height="70dp"
-        android:visibility="gone"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/bienvenido_logo"/>
-    <ImageView
-        android:id="@+id/iconApp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:src="@mipmap/rsz_1balon_de_oro_icono"
-        android:visibility="gone" />
-    <TextView
-        android:layout_gravity="center"
-        android:id="@+id/txtName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/contraste_primary"
-        android:textSize="20dp"
-        android:text="Guillermo garcia huidobro"
-        android:layout_marginTop="20dp"
-        android:visibility="gone" />
-    <Button
-        android:layout_gravity="center"
-        android:id="@+id/btn_fixture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#a97f00"
-        android:textColor="#fff"
-        android:text="jugar"
-        android:layout_marginTop="20dp"
-        android:visibility="gone" />
-    <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="180dp"
-        android:layout_height="90dp"
-        android:layout_below="@+id/iconApp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/app_logo360"
-        android:visibility="gone" />
     <TextView
         android:id="@+id/welcome_label"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:gravity="center"
-        android:textColor="@color/contraste_primary"
+        android:textColor="@color/app_tercer_color"
         android:text="Es necesario registrarse para jugar"
         android:textSize="25dp"
         android:layout_marginTop="20dp"
@@ -77,10 +69,10 @@
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/contraste_primary"
+        android:textColor="@color/app_tercer_color"
         android:text="Email"
         android:layout_marginTop="20dp"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btn_sign_out"
@@ -91,5 +83,5 @@
         android:text="@string/btn_logout_from_google"
         android:textColor="#fff"
         android:layout_marginTop="20dp"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </LinearLayout>

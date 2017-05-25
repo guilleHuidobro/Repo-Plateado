@@ -21,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/interrrogacion_info"
+            android:background="@color/app_tercer_color"
             android:gravity="center"
             android:text="Info Local"
             android:textColor="#fff" />
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/interrrogacion_info"
+            android:background="@color/app_tercer_color"
             android:gravity="center"
             android:text="Estadisticas"
             android:textColor="#fff" />
@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/interrrogacion_info"
+            android:background="@color/app_tercer_color"
             android:gravity="center"
             android:text="Info Visita"
             android:textColor="#fff" />
@@ -108,12 +108,12 @@
 
             <ImageView
                 android:id="@+id/escudoLocal"
-                android:layout_width="0dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="#fff"
                 android:gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="5dp"
                 android:src="@drawable/ic_launcher"
                 android:textColor="#fff"
                 android:layout_weight="0.5"/>
@@ -148,11 +148,11 @@
                 android:id="@+id/equipoVisita" />
             <ImageView
                 android:id="@+id/escudoVisita"
-                android:layout_width="0dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="#fff"
                 android:gravity="center"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_launcher"
                 android:textColor="#fff"
                 android:layout_weight="0.5"/>

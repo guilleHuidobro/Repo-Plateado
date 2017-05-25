@@ -21,8 +21,8 @@
     </style>
 
     <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/gold_primary</item>
-        <item name="colorPrimaryDark">@color/gold_primary</item>
+        <item name="colorPrimary">@color/app_primary</item>
+        <item name="colorPrimaryDark">@color/app_primary</item>
 
         <item name="android:windowBackground">@color/window_background</item>
     </style>

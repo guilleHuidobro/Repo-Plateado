@@ -16,7 +16,7 @@
         android:id="@+id/infoPagoLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/selected_contraste"
+        android:background="@color/app_alerta_rojo"
         android:orientation="vertical">
 
         <TextView
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/futbol24"
-                app:backgroundTint="@color/gold_primary"
+                app:backgroundTint="@color/app_primary"
                 app:borderWidth="0dp"
                 app:fabSize="normal"/>
 
@@ -78,7 +78,7 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:elevation="8dp"
-            android:background="@color/gold_primary"
+            android:background="@color/app_primary"
             android:orientation="horizontal">
 
             <ImageView

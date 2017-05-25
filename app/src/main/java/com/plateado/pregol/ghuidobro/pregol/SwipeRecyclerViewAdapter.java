@@ -50,24 +50,24 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.opcionEmpate.setText(("E"));
 
         if(item.getEstado() == ItemPrediction.EMPATE ){
-        viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
-        viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
-        viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
+        viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_elegida));
+        viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
+        viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
 
         }else if(item.getEstado() == ItemPrediction.LOCAL){
-            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
-            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
-            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_elegida));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
 
         }else if(item.getEstado() == ItemPrediction.VISITA){
-            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
-            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.neutral));
-            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_primary));
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_apagada));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.opcion_elegida));
 
         }else{
-            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_empate));
-            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_secondary));
-            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.green_secondary));
+            viewHolder.opcionEmpate.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.primer_estado_fixture));
+            viewHolder.equipoLocal.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.app_));
+            viewHolder.equipoVisita.setBackgroundColor(ContextCompat.getColor(viewHolder.equipoLocal.getContext(),R.color.app_));
         }
 
 

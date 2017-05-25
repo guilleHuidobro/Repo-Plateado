@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/gold_primary"></LinearLayout>
+        android:background="@color/app_primary"></LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="acepto"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/boton_redondo_dialogo_pago"
             android:textColor="#fff"
             android:onClick="submit"
             android:layout_alignParentLeft="true" />
@@ -72,7 +72,7 @@
             android:id="@+id/buttonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/boton_redondo_dialogo_pago"
             android:text="cancelar"
             android:textColor="#fff"
             android:layout_alignParentRight="true"/>

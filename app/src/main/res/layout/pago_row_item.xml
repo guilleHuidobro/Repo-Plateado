@@ -91,7 +91,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="E"
                 android:textColor="#fff"
-                android:background = "@drawable/roundedbutton"
+                android:background = "@drawable/boton_redondo_resultado"
                 android:id="@+id/resultadoBoton" />
 
 

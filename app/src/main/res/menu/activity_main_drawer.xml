@@ -17,7 +17,7 @@
         <item
             android:id="@+id/nav_estadistica"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="EStadisticas" />
+            android:title="Estadisticas" />
     </group>
 
 </menu>

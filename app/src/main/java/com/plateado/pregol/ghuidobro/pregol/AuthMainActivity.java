@@ -55,7 +55,7 @@ public class AuthMainActivity extends AppCompatActivity
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
         welcomeLabel = (TextView) findViewById(R.id.welcome_label);
-        bienvenidoLogo = (ImageView) findViewById(R.id.bienvenido_logo);
+       // bienvenidoLogo = (ImageView) findViewById(R.id.bienvenido_logo);
 
         welcomeLabel.setText(R.string.welcome_label);
 

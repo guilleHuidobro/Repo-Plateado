@@ -42,16 +42,16 @@
     <!--<color name="gold_primary">#a97f00</color>
     <color name="green_primary">#00a40a</color>
     -->
-    <color name="gold_primary">#002c7c</color>
-    <color name="green_secondary">#1b6f00</color>
-    <color name="green_primary">#1b6fff</color>
+    <color name="app_primary">#002c7c</color>
+    <color name="app_tercer_color">#0047c9</color>
+
+    <color name="opcion_elegida">#1b6fff</color>
+    <color name="opcion_apagada">#888888</color>
+    <color name="primer_estado_fixture">#008b08</color>
+    <color name="app_">#1b6f00</color>
+    <color name="app_alerta_rojo">#a92b00</color>
+
     <color name="contraste_primary">#7D5D25</color>
-    <color name="neutral">#888888</color>
     <color name="green_block">#004400</color>
-    <color name="green_empate">#008b08</color>
-    <color name="selected_contraste">#a92b00</color>
-    <color name="interrrogacion_info">#0047c9</color>
-
-
 
 </resources>

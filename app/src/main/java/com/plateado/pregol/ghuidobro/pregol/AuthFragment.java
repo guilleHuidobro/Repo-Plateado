@@ -53,9 +53,9 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
         txtName = (TextView) fragmentView.findViewById(R.id.txtName);
         txtEmail = (TextView) fragmentView.findViewById(R.id.txtEmail);
         welcomeLabel = (TextView) fragmentView.findViewById(R.id.welcome_label);
-        bienvenidoLogo = (ImageView) fragmentView.findViewById(R.id.bienvenido_logo);
-        iconApp = (ImageView) fragmentView.findViewById(R.id.iconApp);
-        appLogo = (ImageView) fragmentView.findViewById(R.id.app_logo);
+        //bienvenidoLogo = (ImageView) fragmentView.findViewById(R.id.bienvenido_logo);
+        //iconApp = (ImageView) fragmentView.findViewById(R.id.iconApp);
+        //appLogo = (ImageView) fragmentView.findViewById(R.id.app_logo);
 
         welcomeLabel.setText(R.string.welcome_label);
 
@@ -195,9 +195,9 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
             txtEmail.setVisibility(View.VISIBLE);
             btnFixture.setVisibility(View.VISIBLE);
             welcomeLabel.setVisibility(View.GONE);
-            bienvenidoLogo.setVisibility(View.VISIBLE);
-            iconApp.setVisibility(View.GONE);
-            appLogo.setVisibility(View.GONE);
+            //bienvenidoLogo.setVisibility(View.VISIBLE);
+            //iconApp.setVisibility(View.GONE);
+            //appLogo.setVisibility(View.GONE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
@@ -205,9 +205,9 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
             txtEmail.setVisibility(View.GONE);
             btnFixture.setVisibility(View.GONE);
             welcomeLabel.setVisibility(View.VISIBLE);
-            bienvenidoLogo.setVisibility(View.GONE);
-            iconApp.setVisibility(View.VISIBLE);
-            appLogo.setVisibility(View.VISIBLE);
+           // bienvenidoLogo.setVisibility(View.GONE);
+            //iconApp.setVisibility(View.VISIBLE);
+            //appLogo.setVisibility(View.VISIBLE);
         }
     }
 
