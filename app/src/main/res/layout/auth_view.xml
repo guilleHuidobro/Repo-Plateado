@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/iconApp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:paddingTop="16dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/appiconoazul190" />
@@ -19,7 +19,7 @@
         android:id="@+id/appLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:paddingTop="0dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/app_logo" />
 
@@ -36,12 +36,12 @@
     <Button
         android:layout_gravity="center"
         android:id="@+id/btn_fixture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#0047c9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:textColor="#fff"
         android:text="jugar"
-        android:layout_marginTop="40dp"
+        android:background = "@drawable/boton_redondo_jugar"
+        android:layout_marginTop="20dp"
         android:visibility="visible" />
 
     <com.google.android.gms.common.SignInButton

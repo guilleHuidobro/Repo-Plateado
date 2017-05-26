@@ -85,6 +85,9 @@ public class MGMainActivity extends AppCompatActivity
             case R.id.nav_pagos:
                 fragment = new PGPagoFragment();
                 break;
+            case R.id.nav_estadistica:
+                fragment = new ApuestasFragment();
+                break;
         }
 
         //replacing the fragment
