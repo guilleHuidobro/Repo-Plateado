@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/datoGrupoApostadoresLL"
+        android:id="@+id/predicciones_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -16,17 +16,18 @@
         android:layout_marginTop="50dp"
         android:weightSum="2">
         <TextView
-            android:id="@+id/cantidadJugadores"
+            android:id="@+id/label_cantidad_predicciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
             android:text="Predicciones:"
             android:textSize="16dp"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/datos"
+            android:id="@+id/dato_predicciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
@@ -36,24 +37,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/datoGrupoApostadoresLL"
+        android:id="@+id/competidores_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="2">
         <TextView
-            android:id="@+id/cantidadApostadoresq"
+            android:id="@+id/label_cantidad_competidores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
             android:text="Competidores:"
             android:textSize="16dp"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/dato"
+            android:id="@+id/dato_competidores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
@@ -63,24 +65,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/datoGrupoApostadoresLL"
+        android:id="@+id/inscripcion_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="2">
         <TextView
-            android:id="@+id/cantidadApostadores"
+            android:id="@+id/labe_cantidad_inscripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
             android:text="Inscripcion:"
             android:textSize="16dp"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/dato"
+            android:id="@+id/dato_inscripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
@@ -90,24 +93,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bottom_wrapper1"
+        android:id="@+id/pozo_acumulado_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="2">
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/etiqueta_pozo_acumulado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:textSize="16dp"
-            android:textColor="@color/cardview_dark_background"
-            android:text="Fondo:"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
+            android:text="Pozo Acumulado:"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/dato"
+            android:id="@+id/dato_pozo_acumulado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
@@ -117,24 +121,25 @@
     </LinearLayout>
 
     <LinearLayout
-    android:id="@+id/bottom_wrapper1"
+    android:id="@+id/top_ganador_LL"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:weightSum="2">
     <TextView
-        android:id="@+id/txtEmail"
+        android:id="@+id/etiqueta_top_ganador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="5dp"
         android:textSize="16dp"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/app_tercer_color"
+        android:textStyle="bold"
         android:text="Top Ganador:"
         android:visibility="visible" />
     <TextView
-        android:id="@+id/dato"
+        android:id="@+id/dato_top_ganador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/cardview_dark_background"
@@ -144,24 +149,25 @@
 </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bottom_wrapper1"
+        android:id="@+id/fecha_actual_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="2">
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/etiqueta_fecha_actual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:textSize="16dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
             android:text="Esta fecha:"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/dato"
+            android:id="@+id/dato_fecha_actual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
@@ -170,24 +176,25 @@
             android:visibility="visible" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bottom_wrapper1"
+        android:id="@+id/historial_ganados_LL"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="2">
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/etiqueta_historial_ganados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:textSize="16dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/app_tercer_color"
+            android:textStyle="bold"
             android:text="Ganaste:"
             android:visibility="visible" />
         <TextView
-            android:id="@+id/dato"
+            android:id="@+id/dato_historial_ganados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"

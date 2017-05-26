@@ -43,6 +43,7 @@
                 android:background="#fff"
                 android:foregroundGravity="left"
                 android:gravity="left"
+                android:layout_marginRight="5dp"
                 android:src="@drawable/ic_launcher"
                 android:textColor="#fff" />
 

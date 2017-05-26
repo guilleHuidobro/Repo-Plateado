@@ -4,6 +4,16 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Mis Resultados"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_fechas"
+        android:orderInCategory="100"
+        android:title="Mis Puntos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_ganadores"
+        android:orderInCategory="100"
+        android:title="Ganadores"
         app:showAsAction="never" />
 </menu>

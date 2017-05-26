@@ -9,15 +9,19 @@
         <item
             android:id="@+id/nav_jugar"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="Jugar" />
+            android:title="Fixture" />
         <item
             android:id="@+id/nav_pagos"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="Pagos" />
+            android:title="Predicciones" />
         <item
             android:id="@+id/nav_estadistica"
             android:icon="@drawable/pelotaverdemenu24"
-            android:title="Estadisticas" />
+            android:title="Estadisticas de MonyGol" />
+        <item
+            android:id="@+id/nav_reglas"
+            android:icon="@drawable/pelotaverdemenu24"
+            android:title="Reglas de MonyGol" />
     </group>
 
 </menu>
