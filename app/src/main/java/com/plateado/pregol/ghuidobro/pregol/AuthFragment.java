@@ -36,9 +36,17 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
     private static final int RC_SIGN_IN = 007;
     private ImageView bienvenidoLogo,iconApp,appLogo;
 
+    private AlertDialogManager alert = new AlertDialogManager();
+
+    // Session Manager Class
+    private SessionManager session;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        // Session Manager
+        session = new SessionManager(getContext());
 
         final View fragmentView = inflater.inflate(R.layout.auth_view, container, false);
 
@@ -154,6 +162,7 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
+                        session.logoutUser();
                         updateUI(false);
                     }
                 });
@@ -176,6 +185,8 @@ public class AuthFragment extends Fragment implements GoogleApiClient.OnConnecti
 
             String personName = acct.getDisplayName();
             String email = acct.getEmail();
+
+            session.createLoginSession("MonyGol", email);
 
             txtName.setText(personName);
             txtEmail.setText(email);

@@ -47,10 +47,13 @@
 
     <color name="opcion_elegida">#1b6fff</color>
     <color name="opcion_apagada">#888888</color>
-    <color name="primer_estado_fixture">#008b08</color>
+    <color name="segunda_opcion_apagada">#455a64</color>
+    <color name="tercera_opcion_apagada">#263238</color>
+    <color name="primer_estado_fixture_empate">#78909c</color>
+    <color name="primer_estado_fixture_equipos">#607d8b</color>
+    <color name="sprimer_estado_fixture">#008b08</color>
     <color name="app_">#1b6f00</color>
     <color name="app_alerta_rojo">#a92b00</color>
-
     <color name="contraste_primary">#7D5D25</color>
     <color name="green_block">#004400</color>
 

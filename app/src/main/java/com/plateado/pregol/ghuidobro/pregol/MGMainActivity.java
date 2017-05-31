@@ -15,6 +15,11 @@ import android.view.MenuItem;
 public class MGMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    // Session Manager Class
+    private SessionManager session;
+    private AlertDialogManager alert = new AlertDialogManager();
+    private Boolean isFirstTime = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +27,7 @@ public class MGMainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        session = new SessionManager(getApplicationContext());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -35,6 +40,11 @@ public class MGMainActivity extends AppCompatActivity
 
         //add this line to display menu1 when the activity is loaded
         displaySelectedScreen(R.id.nav_inicio);
+
+        if(!session.isLoggedIn() && !isFirstTime){
+            alert.showAlertDialog(MGMainActivity.this, "Hey !!", "Debes registrarte", false);
+        }
+
     }
 
     @Override
@@ -80,10 +90,22 @@ public class MGMainActivity extends AppCompatActivity
                 fragment = new AuthFragment();
                 break;
             case R.id.nav_jugar:
+                if(session.isLoggedIn()){
                 fragment = new PGMainFixtureFragment();
+                }else{
+                    isFirstTime = false;
+                    session.checkLogin();
+                }
+
                 break;
             case R.id.nav_pagos:
-                fragment = new PGPagoFragment();
+                if(session.isLoggedIn()){
+                    fragment = new PGPagoFragment();
+                }else{
+                    isFirstTime = false;
+                    session.checkLogin();
+                }
+
                 break;
             case R.id.nav_estadistica:
                 fragment = new ApuestasFragment();

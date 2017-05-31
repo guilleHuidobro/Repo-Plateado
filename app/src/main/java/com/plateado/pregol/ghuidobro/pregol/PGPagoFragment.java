@@ -10,11 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +59,7 @@ public class PGPagoFragment extends Fragment {
     private ProgressDialog loading;
     private Handler handler;
     private View infoPagoLL;
-
+    private TextView infoPagoText;
     final Context context = getActivity();
     private Button mbutton;
     private View fragmentView;
@@ -78,6 +75,7 @@ public class PGPagoFragment extends Fragment {
         sendIcon = fragmentView.findViewById(R.id.send_icon);
         fab = (FloatingActionButton) fragmentView.findViewById(R.id.fab);
         infoPagoLL = fragmentView.findViewById(R.id.infoPagoLL);
+        infoPagoText = (TextView) fragmentView.findViewById(R.id.infoPagoText);
 
         uno = fragmentView.findViewById(R.id.uno);
         dos = fragmentView.findViewById(R.id.dos);
@@ -373,6 +371,8 @@ public class PGPagoFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent data) {
 
+        super.onActivityResult(requestCode,resultCode, data);
+
         if (requestCode == MercadoPago.CHECKOUT_REQUEST_CODE) {
             if (resultCode == RESULT_OK && data != null) {
 
@@ -380,16 +380,14 @@ public class PGPagoFragment extends Fragment {
                 Payment payment = JsonUtil.getInstance()
                         .fromJson(data.getStringExtra("payment"), Payment.class);
 
-                TextView results = (TextView) fragmentView.findViewById(R.id.infoPagoText);
-
                 if (payment != null) {
 
                     infoPagoLL.setBackgroundColor(Color.parseColor("#008b08"));
 
-                    results.setText("Tu pago ha sido registrado estas participando !!!");
+                    infoPagoText.setText("Tu pago ha sido registrado estas participando !!!");
                 } else {
                     infoPagoLL.setBackgroundColor(Color.parseColor("#a92b00"));
-                    results.setText("No se ha confirmado el pago.");
+                    infoPagoText.setText("No se ha confirmado el pago.");
                 }
 
             } else {

@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +40,12 @@ public class AuthMainActivity extends AppCompatActivity
     private Button btnSignOut,btnFixture;
     private TextView txtName, txtEmail,welcomeLabel;
     private static final int RC_SIGN_IN = 007;
-    private ImageView bienvenidoLogo;
+    private ImageView bienvenidoLogo,iconApp,appLogo;
+
+    private AlertDialogManager alert = new AlertDialogManager();
+
+    // Session Manager Class
+    private SessionManager session;
 
 
     @Override
@@ -55,13 +64,30 @@ public class AuthMainActivity extends AppCompatActivity
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
         welcomeLabel = (TextView) findViewById(R.id.welcome_label);
-       //+ bienvenidoLogo = (ImageView) findViewById(R.id.bienvenido_logo);
+        //bienvenidoLogo = (ImageView) fragmentView.findViewById(R.id.bienvenido_logo);
+        //iconApp = (ImageView) fragmentView.findViewById(R.id.iconApp);
+        //appLogo = (ImageView) fragmentView.findViewById(R.id.app_logo);
 
         welcomeLabel.setText(R.string.welcome_label);
 
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
         btnFixture.setOnClickListener(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //add this line to display menu1 when the activity is loaded
+        displaySelectedScreen(R.id.nav_inicio);
 
 
         // Configure sign-in to request the user's ID, email address, and basic
@@ -153,6 +179,7 @@ public class AuthMainActivity extends AppCompatActivity
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
+                        session.logoutUser();
                         updateUI(false);
                     }
                 });
@@ -176,6 +203,8 @@ public class AuthMainActivity extends AppCompatActivity
             String personName = acct.getDisplayName();
             String email = acct.getEmail();
 
+            session.createLoginSession("MonyGol", email);
+
             txtName.setText(personName);
             txtEmail.setText(email);
 
@@ -194,7 +223,9 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.VISIBLE);
             btnFixture.setVisibility(View.VISIBLE);
             welcomeLabel.setVisibility(View.GONE);
-            bienvenidoLogo.setVisibility(View.VISIBLE);
+            //bienvenidoLogo.setVisibility(View.VISIBLE);
+            //iconApp.setVisibility(View.GONE);
+            //appLogo.setVisibility(View.GONE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
@@ -202,7 +233,9 @@ public class AuthMainActivity extends AppCompatActivity
             txtEmail.setVisibility(View.GONE);
             btnFixture.setVisibility(View.GONE);
             welcomeLabel.setVisibility(View.VISIBLE);
-            bienvenidoLogo.setVisibility(View.GONE);
+            // bienvenidoLogo.setVisibility(View.GONE);
+            //iconApp.setVisibility(View.VISIBLE);
+            //appLogo.setVisibility(View.VISIBLE);
         }
     }
 
@@ -219,5 +252,46 @@ public class AuthMainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mGoogleApiClient.stopAutoManage(this);
+        mGoogleApiClient.disconnect();
+    }
+
+    private void displaySelectedScreen(int itemId) {
+
+        //creating fragment object
+        Fragment fragment = null;
+
+        //initializing the fragment object which is selected
+        switch (itemId) {
+            case R.id.nav_inicio:
+                fragment = new AuthFragment();
+                break;
+            case R.id.nav_jugar:
+                session.checkLogin();
+                fragment = new PGMainFixtureFragment();
+                break;
+            case R.id.nav_pagos:
+                session.checkLogin();
+                fragment = new PGPagoFragment();
+                break;
+            case R.id.nav_estadistica:
+                fragment = new ApuestasFragment();
+                break;
+        }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 }
