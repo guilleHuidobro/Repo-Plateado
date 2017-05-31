@@ -41,10 +41,6 @@ public class MGMainActivity extends AppCompatActivity
         //add this line to display menu1 when the activity is loaded
         displaySelectedScreen(R.id.nav_inicio);
 
-        if(!session.isLoggedIn() && !isFirstTime){
-            alert.showAlertDialog(MGMainActivity.this, "Hey !!", "Debes registrarte", false);
-        }
-
     }
 
     @Override
@@ -92,18 +88,12 @@ public class MGMainActivity extends AppCompatActivity
             case R.id.nav_jugar:
                 if(session.isLoggedIn()){
                 fragment = new PGMainFixtureFragment();
-                }else{
-                    isFirstTime = false;
-                    session.checkLogin();
                 }
 
                 break;
             case R.id.nav_pagos:
                 if(session.isLoggedIn()){
                     fragment = new PGPagoFragment();
-                }else{
-                    isFirstTime = false;
-                    session.checkLogin();
                 }
 
                 break;
