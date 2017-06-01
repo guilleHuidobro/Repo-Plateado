@@ -44,7 +44,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * Created by ghuidobro on 4/12/17.
  */
-public class PGPagoFragment extends Fragment {
+public class PGPrediccionesFragment extends Fragment {
 
     private ArrayList<PGFixture> mDataSet;
     private RecyclerView mRecyclerView;
@@ -321,7 +321,7 @@ public class PGPagoFragment extends Fragment {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
-                    new Thread(new PGPagoFragment.Task()).start();
+                    new Thread(new PGPrediccionesFragment.Task()).start();
                 }
 
                 @Override

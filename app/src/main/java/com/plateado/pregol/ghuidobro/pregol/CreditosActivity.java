@@ -3,8 +3,8 @@ package com.plateado.pregol.ghuidobro.pregol;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by ghuidobro on 6/1/17.
+ * Created by guille on 25/05/2017.
  */
 
-public class ReglasActivity extends AppCompatActivity{
+public class CreditosActivity extends AppCompatActivity {
 }

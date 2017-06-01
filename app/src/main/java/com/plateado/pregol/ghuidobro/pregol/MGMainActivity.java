@@ -1,5 +1,7 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
+import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.mercadopago.core.MercadoPago;
+import com.mercadopago.exceptions.MPException;
+import com.mercadopago.model.Payment;
+import com.mercadopago.util.JsonUtil;
 
 public class MGMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -93,13 +100,20 @@ public class MGMainActivity extends AppCompatActivity
                 }
 
                 break;
-            case R.id.nav_pagos:
+            case R.id.nav_predicciones:
                 if(session.isLoggedIn()){
-                    fragment = new PGPagoFragment();
+                    fragment = new PGPrediccionesFragment();
                 }else{
                     fragment = new AuthFragment();
                 }
-
+                break;
+            case R.id.nav_creditos:
+                if(session.isLoggedIn()){
+                    fragment = new CreditosFragment();
+                    callPagoDialog();
+                }else{
+                    fragment = new AuthFragment();
+                }
                 break;
             case R.id.nav_estadistica:
                 fragment = new EstadisticasFragment();
@@ -110,15 +124,20 @@ public class MGMainActivity extends AppCompatActivity
                 break;
         }
 
+        replaceFragment(fragment);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void replaceFragment(Fragment fragment) {
         //replacing the fragment
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
     }
 
 
@@ -130,6 +149,44 @@ public class MGMainActivity extends AppCompatActivity
         displaySelectedScreen(item.getItemId());
         //make this method blank
         return true;
+    }
+
+    public void callPagoDialog() {
+        DialogFragment newFragment = new PagoDialogFragment();
+        newFragment.show(getFragmentManager(),"");
+    }
+    // Espera los resultados del checkout
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent data) {
+
+        super.onActivityResult(requestCode,resultCode, data);
+
+        if (requestCode == MercadoPago.CHECKOUT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK && data != null) {
+
+                // Listo! El pago ya fue procesado por MP.
+                Payment payment = JsonUtil.getInstance()
+                        .fromJson(data.getStringExtra("payment"), Payment.class);
+
+                if (payment != null) {
+                    Fragment fragment = null;
+                    if(fragment != null){
+                        fragment = new CreditosFragment();
+                    }
+                    replaceFragment(fragment);
+                } else {
+                    System.out.println("ERROR");
+                }
+
+            } else {
+                if ((data != null) && (data.hasExtra("mpException"))) {
+                    MPException mpException = JsonUtil.getInstance()
+                            .fromJson(data.getStringExtra("mpException"), MPException.class);
+                    // Manejá tus errores.
+                }
+            }
+        }
     }
 
 }

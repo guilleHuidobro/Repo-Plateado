@@ -275,9 +275,9 @@ public class AuthMainActivity extends AppCompatActivity
                 session.checkLogin();
                 fragment = new PGMainFixtureFragment();
                 break;
-            case R.id.nav_pagos:
+            case R.id.nav_predicciones:
                 session.checkLogin();
-                fragment = new PGPagoFragment();
+                fragment = new PGPrediccionesFragment();
                 break;
             case R.id.nav_estadistica:
                 fragment = new EstadisticasFragment();

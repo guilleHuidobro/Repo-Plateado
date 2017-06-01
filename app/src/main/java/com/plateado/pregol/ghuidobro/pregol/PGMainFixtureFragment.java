@@ -3,7 +3,6 @@ package com.plateado.pregol.ghuidobro.pregol;
 import android.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -209,7 +208,7 @@ public class PGMainFixtureFragment extends Fragment {
                         loading.dismiss();
                     }
                     Fragment fragment = null;
-                    fragment = new PGPagoFragment();
+                    fragment = new PGPrediccionesFragment();
                     if (fragment != null) {
                         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.content_frame, fragment);

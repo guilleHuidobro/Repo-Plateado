@@ -293,7 +293,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
                     if(loading != null){
                         loading.dismiss();
                     }
-                    Intent intent = new Intent(PGMainFixtureActivity.this, PGPagoActivity.class);
+                    Intent intent = new Intent(PGMainFixtureActivity.this, PGPrediccionesActivity.class);
                     startActivity(intent);
                 }
 

@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".EstadisticasActivity"></activity>
         <activity android:name=".AuthMainActivity"></activity>
-        <activity android:name=".PGPagoActivity"></activity>
+        <activity android:name=".PGPrediccionesActivity"></activity>
         <activity android:name=".PGMainFixtureActivity"></activity>
     </application>
 
