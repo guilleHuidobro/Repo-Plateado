@@ -280,7 +280,7 @@ public class AuthMainActivity extends AppCompatActivity
                 fragment = new PGPagoFragment();
                 break;
             case R.id.nav_estadistica:
-                fragment = new ApuestasFragment();
+                fragment = new EstadisticasFragment();
                 break;
         }
 

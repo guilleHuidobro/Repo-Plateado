@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ApuestasActivity"></activity>
+        <activity android:name=".EstadisticasActivity"></activity>
         <activity android:name=".AuthMainActivity"></activity>
         <activity android:name=".PGPagoActivity"></activity>
         <activity android:name=".PGMainFixtureActivity"></activity>

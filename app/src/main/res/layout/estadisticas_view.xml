@@ -154,6 +154,7 @@
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:weightSum="2">
         <TextView
             android:id="@+id/etiqueta_fecha_actual"
@@ -164,16 +165,14 @@
             android:textSize="16dp"
             android:textColor="@color/app_tercer_color"
             android:textStyle="bold"
-            android:text="Esta fecha:"
-            android:visibility="visible" />
+            android:text="Esta fecha:"/>
         <TextView
             android:id="@+id/dato_fecha_actual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
             android:textSize="16dp"
-            android:text="No hay prediccion para esta fecha."
-            android:visibility="visible" />
+            android:text="No hay prediccion para esta fecha." />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/historial_ganados_LL"
@@ -181,6 +180,7 @@
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:weightSum="2">
         <TextView
             android:id="@+id/etiqueta_historial_ganados"
@@ -191,16 +191,14 @@
             android:textSize="16dp"
             android:textColor="@color/app_tercer_color"
             android:textStyle="bold"
-            android:text="Ganaste:"
-            android:visibility="visible" />
+            android:text="Ganaste:" />
         <TextView
             android:id="@+id/dato_historial_ganados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cardview_dark_background"
             android:textSize="16dp"
-            android:text="1 vez."
-            android:visibility="visible" />
+            android:text="1 vez." />
     </LinearLayout>
     <Button
         android:layout_gravity="center"
@@ -211,6 +209,15 @@
         android:text="jugar"
         android:layout_marginTop="40dp"
         android:background = "@drawable/boton_redondo_jugar"
-        android:visibility="visible" />
+        android:visibility="gone" />
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_gravity="center"
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_marginTop="100dp">
+    </com.google.android.gms.common.SignInButton>
 
 </LinearLayout>

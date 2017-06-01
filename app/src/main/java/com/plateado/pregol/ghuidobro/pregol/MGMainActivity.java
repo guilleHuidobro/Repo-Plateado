@@ -88,17 +88,25 @@ public class MGMainActivity extends AppCompatActivity
             case R.id.nav_jugar:
                 if(session.isLoggedIn()){
                 fragment = new PGMainFixtureFragment();
+                }else{
+                    fragment = new AuthFragment();
                 }
 
                 break;
             case R.id.nav_pagos:
                 if(session.isLoggedIn()){
                     fragment = new PGPagoFragment();
+                }else{
+                    fragment = new AuthFragment();
                 }
 
                 break;
             case R.id.nav_estadistica:
-                fragment = new ApuestasFragment();
+                fragment = new EstadisticasFragment();
+                break;
+
+            case R.id.nav_reglas:
+                fragment = new ReglasFragment();
                 break;
         }
 
