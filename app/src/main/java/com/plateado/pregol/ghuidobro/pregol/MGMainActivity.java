@@ -27,6 +27,7 @@ public class MGMainActivity extends AppCompatActivity
     private AlertDialogManager alert = new AlertDialogManager();
     private Boolean isFirstTime = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,20 +74,31 @@ public class MGMainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Fragment fragment = null;
+        switch (id) {
+            case R.id.action_resultados:
+                //replaceFragment(fragment);
+                break;
+            case R.id.action_creditos:
+                if(session.isLoggedIn()){
+                    fragment = new CreditosFragment();
+                    callPagoDialog();
+                }else{
+                    fragment = new AuthFragment();
+                }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+            case R.id.action_ganadores:
+                //replaceFragment(fragment);
+                break;
+
         }
-
+        replaceFragment(fragment);
         return super.onOptionsItemSelected(item);
     }
 
     private void displaySelectedScreen(int itemId) {
-
-        //creating fragment object
         Fragment fragment = null;
-
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_inicio:
@@ -110,7 +122,6 @@ public class MGMainActivity extends AppCompatActivity
             case R.id.nav_creditos:
                 if(session.isLoggedIn()){
                     fragment = new CreditosFragment();
-                    callPagoDialog();
                 }else{
                     fragment = new AuthFragment();
                 }
