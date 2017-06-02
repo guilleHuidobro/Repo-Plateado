@@ -8,12 +8,12 @@ public class MGPrediccionUsuario implements Serializable {
 
     private String fechaFixture;
     private String idPartido;
-    private String ususario;
+    private String usario;
     private String resultadoPrediccion;
 
 
-    public MGPrediccionUsuario(String ususario, String resultadoPrediccion, String fechaFixture, String idPartido) {
-        this.ususario = ususario;
+    public MGPrediccionUsuario( String fechaFixture, String idPartido, String resultadoPrediccion, String usario) {
+        this.usario = usario;
         this.resultadoPrediccion = resultadoPrediccion;
         this.fechaFixture = fechaFixture;
         this.idPartido = idPartido;
@@ -27,12 +27,12 @@ public class MGPrediccionUsuario implements Serializable {
         this.idPartido = idPartido;
     }
 
-    public String getUsusario() {
-        return ususario;
+    public String getUsario() {
+        return usario;
     }
 
-    public void setUsusario(String ususario) {
-        this.ususario = ususario;
+    public void setUsario(String usario) {
+        this.usario = usario;
     }
 
     public String getResultadoPrediccion() {

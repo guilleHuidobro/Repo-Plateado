@@ -178,7 +178,6 @@ public class PGPrediccionesFragment extends Fragment {
     // load initial data
     public void loadPrediccionData() {
         String urlString = getString(R.string.web_url_predicciones_usuario);
-        isPrediction = true;
         try{
             URL url = new URL(urlString);
             StateTask stateTask = new StateTask();
@@ -241,22 +240,11 @@ public class PGPrediccionesFragment extends Fragment {
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
 
-            if(!isPrediction) {
+            if(isPrediction) {
                 convertFixtureJSONtoArrayList(jsonObject);
                 setItemFixture();
             }else{
                 convertPredictionJSONtoArrayList(jsonObject);
-            }
-
-            mAdapter.notifyDataSetChanged();
-
-            if (mDataSet.isEmpty()) {
-                mRecyclerView.setVisibility(View.GONE);
-                morph.setVisibility(View.GONE);
-
-            } else {
-                mRecyclerView.setVisibility(View.VISIBLE);
-                morph.setVisibility(View.VISIBLE);
             }
 
         }//end of onPostExecute
@@ -267,8 +255,24 @@ public class PGPrediccionesFragment extends Fragment {
         for (PGFixture item:mDataSet) {
             ItemPrediction itemPrediction = new ItemPrediction();
             itemPrediction.setPgFixture(item);
-            itemPrediction.setEstado(1);
+
+            for(MGPrediccionUsuario prediccion : mDataSetPrediccion){
+                if(item.getIdPartido().equals(prediccion.getIdPartido())){
+                    itemPrediction.setEstado(Integer.parseInt(prediccion.getResultadoPrediccion()));
+                }
+            }
+
             itemPredictions.add(itemPrediction);
+        }
+        mAdapter.notifyDataSetChanged();
+
+        if (mDataSet.isEmpty()) {
+            mRecyclerView.setVisibility(View.GONE);
+            morph.setVisibility(View.GONE);
+
+        } else {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            morph.setVisibility(View.VISIBLE);
         }
     }
 
@@ -308,9 +312,9 @@ public class PGPrediccionesFragment extends Fragment {
 
             for(int i=0; i<list.length(); i++) {
                 JSONObject stateobj = list.getJSONObject(i);
-                mDataSetPrediccion.add(new MGPrediccionUsuario(stateobj.getString("fecha_fixture"),stateobj.getString("usuario"),stateobj.getString("id_partido"),stateobj.getString("resultado")));
+                mDataSetPrediccion.add(new MGPrediccionUsuario(stateobj.getString("fecha_fixture"),stateobj.getString("id_partido"),stateobj.getString("resultado"),stateobj.getString("usuario")));
             }//end of for loop
-            isPrediction = false;
+            isPrediction = true;
 
         }catch(JSONException e){
             e.printStackTrace();
