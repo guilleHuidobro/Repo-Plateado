@@ -29,7 +29,7 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
 
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pago_row_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.prediccion_usuario_row_item, parent, false);
         return new SimpleViewHolder(view);
     }
 
