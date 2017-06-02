@@ -7,18 +7,25 @@ public class MGPrediccionUsuario implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String fechaFixture;
-    private int idPartido;
+    private String idPartido;
     private String ususario;
     private String resultadoPrediccion;
 
 
-    public MGPrediccionUsuario(String ususario, String resultadoPrediccion, String fechaFixture, int idPartido) {
+    public MGPrediccionUsuario(String ususario, String resultadoPrediccion, String fechaFixture, String idPartido) {
         this.ususario = ususario;
         this.resultadoPrediccion = resultadoPrediccion;
         this.fechaFixture = fechaFixture;
         this.idPartido = idPartido;
     }
 
+    public String getIdPartido() {
+        return idPartido;
+    }
+
+    public void setIdPartido(String idPartido) {
+        this.idPartido = idPartido;
+    }
 
     public String getUsusario() {
         return ususario;
@@ -45,11 +52,4 @@ public class MGPrediccionUsuario implements Serializable {
     }
 
 
-    public int getIdPartido() {
-        return idPartido;
-    }
-
-    public void setIdPartido(int idPartido) {
-        this.idPartido = idPartido;
-    }
 }

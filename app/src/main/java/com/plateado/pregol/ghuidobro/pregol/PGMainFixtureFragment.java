@@ -372,7 +372,7 @@ public class PGMainFixtureFragment extends Fragment {
 
             for(int i=0; i<list.length(); i++) {
                 JSONObject stateobj = list.getJSONObject(i);
-                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getInt("id_partido")));
+                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getString("id_partido")));
             }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);

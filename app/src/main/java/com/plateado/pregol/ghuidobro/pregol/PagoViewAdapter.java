@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
 
     private Context mContext;
     private ArrayList<ItemPrediction> fixtureList;
+    private String resultado;
+
 
     public PagoViewAdapter(Context context, ArrayList<ItemPrediction> objects) {
         this.mContext = context;
@@ -37,6 +40,21 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
         viewHolder.equipoLocal.setText((item.getPgFixture().getEquipoLocal()));
         viewHolder.equipoVisita.setText((item.getPgFixture().getEquipoVisita()));
         viewHolder.opcionEmpate.setText(("Vs"));
+
+        int id = item.getEstado();
+        switch(id) {
+            case 0:
+                resultado="E";
+                break;
+            case 1:
+                resultado="L";
+                break;
+            case 2:
+                resultado="V";
+                break;
+        }
+
+        viewHolder.resultadoBoton.setText(resultado);
 
         Picasso.with(mContext)
                 .load(item.getPgFixture().getImagenEquipoLocal().toString())
@@ -72,6 +90,7 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
         TextView opcionEmpate;
         ImageView escudoLocal;
         ImageView escudoVisita;
+        Button resultadoBoton;
 
 
         public SimpleViewHolder(View itemView) {
@@ -81,7 +100,7 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
             opcionEmpate = (TextView) itemView.findViewById(R.id.opcionEmpate);
             escudoLocal = (ImageView) itemView.findViewById(R.id.escudoLocal);
             escudoVisita = (ImageView) itemView.findViewById(R.id.escudoVisita);
-
+            resultadoBoton = (Button) itemView.findViewById(R.id.resultadoBoton);
         }
     }
 

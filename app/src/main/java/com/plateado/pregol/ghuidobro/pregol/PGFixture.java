@@ -10,10 +10,10 @@ public class PGFixture implements Serializable {
     private String equipoVisita;
     private String imagenEquipoLocal;
     private String imagenEquipoVisita;
-    private int idPartido;
+    private String idPartido;
 
 
-    public PGFixture(String equipoLocal, String equipoVisita, String imagenEquipoLocal, String imagenEquipoVisita, int idPartido) {
+    public PGFixture(String equipoLocal, String equipoVisita, String imagenEquipoLocal, String imagenEquipoVisita, String idPartido) {
         this.equipoLocal = equipoLocal;
         this.equipoVisita = equipoVisita;
         this.imagenEquipoLocal = imagenEquipoLocal;
@@ -53,11 +53,11 @@ public class PGFixture implements Serializable {
         this.equipoVisita = equipoVisita;
     }
 
-    public int getIdPartido() {
+    public String getIdPartido() {
         return idPartido;
     }
 
-    public void setIdPartido(int idPartido) {
+    public void setIdPartido(String idPartido) {
         this.idPartido = idPartido;
     }
 }

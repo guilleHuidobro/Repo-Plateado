@@ -43,6 +43,8 @@ public class PGPrediccionesFragment extends Fragment {
     private Handler handler;
     private View fragmentView;
     View uno, dos, sendIcon, cuatro;
+    private boolean isPrediction = false;
+    private ArrayList<MGPrediccionUsuario> mDataSetPrediccion;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +64,9 @@ public class PGPrediccionesFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mDataSet = new ArrayList<PGFixture>();
+        mDataSetPrediccion = new ArrayList<MGPrediccionUsuario>();
 
+        loadPrediccionData();
         loadData();
 
         // Creating Adapter object
@@ -108,8 +112,6 @@ public class PGPrediccionesFragment extends Fragment {
         });
 
 
-
-
         dos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +131,6 @@ public class PGPrediccionesFragment extends Fragment {
                 morph.hide();
             }
         });
-
 
         return fragmentView;
     }
@@ -164,6 +165,20 @@ public class PGPrediccionesFragment extends Fragment {
     public void loadData() {
         String urlString = getString(R.string.web_url_fixture);
 
+        try{
+            URL url = new URL(urlString);
+            StateTask stateTask = new StateTask();
+            stateTask.execute(url);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    // load initial data
+    public void loadPrediccionData() {
+        String urlString = getString(R.string.web_url_predicciones_usuario);
+        isPrediction = true;
         try{
             URL url = new URL(urlString);
             StateTask stateTask = new StateTask();
@@ -225,38 +240,16 @@ public class PGPrediccionesFragment extends Fragment {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            convertFixtureJSONtoArrayList(jsonObject);
 
-
-
-            for (PGFixture item:mDataSet) {
-                ItemPrediction itemPrediction = new ItemPrediction();
-                itemPrediction.setPgFixture(item);
-                itemPrediction.setEstado(ItemPrediction.SIN_ESTADO);
-                itemPredictions.add(itemPrediction);
+            if(!isPrediction) {
+                convertFixtureJSONtoArrayList(jsonObject);
+                setItemFixture();
+            }else{
+                convertPredictionJSONtoArrayList(jsonObject);
             }
 
             mAdapter.notifyDataSetChanged();
 
-        }//end of onPostExecute
-    }//end of
-
-
-
-
-    private void convertFixtureJSONtoArrayList(JSONObject states){
-
-        //fixtureList.clear();
-
-        mDataSet.clear();
-
-        try{
-            JSONArray list = states.getJSONArray("fixture");
-
-            for(int i=0; i<list.length(); i++) {
-                JSONObject stateobj = list.getJSONObject(i);
-                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getInt("id_partido")));
-            }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);
                 morph.setVisibility(View.GONE);
@@ -265,6 +258,59 @@ public class PGPrediccionesFragment extends Fragment {
                 mRecyclerView.setVisibility(View.VISIBLE);
                 morph.setVisibility(View.VISIBLE);
             }
+
+        }//end of onPostExecute
+    }//end of
+
+    private void setItemFixture() {
+
+        for (PGFixture item:mDataSet) {
+            ItemPrediction itemPrediction = new ItemPrediction();
+            itemPrediction.setPgFixture(item);
+            itemPrediction.setEstado(1);
+            itemPredictions.add(itemPrediction);
+        }
+    }
+
+
+    private void convertFixtureJSONtoArrayList(JSONObject states){
+
+        mDataSet.clear();
+
+        try{
+            JSONArray list = states.getJSONArray("fixture");
+
+            for(int i=0; i<list.length(); i++) {
+                JSONObject stateobj = list.getJSONObject(i);
+                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getString("id_partido")));
+            }//end of for loop
+            /*
+            if (mDataSet.isEmpty()) {
+                mRecyclerView.setVisibility(View.GONE);
+                morph.setVisibility(View.GONE);
+
+            } else {
+                mRecyclerView.setVisibility(View.VISIBLE);
+                morph.setVisibility(View.VISIBLE);
+            }
+*/
+        }catch(JSONException e){
+            e.printStackTrace();
+
+        }//end of catch
+
+    }//end of convertJSONArrayList
+
+    private void convertPredictionJSONtoArrayList(JSONObject states){
+
+        try{
+            JSONArray list = states.getJSONArray("prediccionusuario");
+
+            for(int i=0; i<list.length(); i++) {
+                JSONObject stateobj = list.getJSONObject(i);
+                mDataSetPrediccion.add(new MGPrediccionUsuario(stateobj.getString("fecha_fixture"),stateobj.getString("usuario"),stateobj.getString("id_partido"),stateobj.getString("resultado")));
+            }//end of for loop
+            isPrediction = false;
 
         }catch(JSONException e){
             e.printStackTrace();

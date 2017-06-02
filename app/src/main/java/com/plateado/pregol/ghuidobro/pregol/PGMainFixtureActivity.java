@@ -414,7 +414,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
             for (PGFixture item:mDataSet) {
                 ItemPrediction itemPrediction = new ItemPrediction();
                 itemPrediction.setPgFixture(item);
-                itemPrediction.setEstado(ItemPrediction.SIN_ESTADO);
+                //itemPrediction.setEstado(ItemPrediction.SIN_ESTADO);
                 itemPredictions.add(itemPrediction);
             }
 
@@ -451,7 +451,7 @@ public class PGMainFixtureActivity extends AppCompatActivity {
 
             for(int i=0; i<list.length(); i++) {
                 JSONObject stateobj = list.getJSONObject(i);
-                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getInt("id_partido")));
+                mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getString("id_partido")));
             }//end of for loop
             if (mDataSet.isEmpty()) {
                 mRecyclerView.setVisibility(View.GONE);
