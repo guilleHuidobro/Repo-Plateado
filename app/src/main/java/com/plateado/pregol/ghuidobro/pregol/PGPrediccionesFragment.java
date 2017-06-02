@@ -366,37 +366,4 @@ public class PGPrediccionesFragment extends Fragment {
         }
     }
 
-    // Espera los resultados del checkout
-    @Override
-    public void onActivityResult(int requestCode, int resultCode,
-                                 Intent data) {
-
-        super.onActivityResult(requestCode,resultCode, data);
-
-        if (requestCode == MercadoPago.CHECKOUT_REQUEST_CODE) {
-            if (resultCode == RESULT_OK && data != null) {
-
-                // Listo! El pago ya fue procesado por MP.
-                Payment payment = JsonUtil.getInstance()
-                        .fromJson(data.getStringExtra("payment"), Payment.class);
-
-                if (payment != null) {
-
-                    infoPagoLL.setBackgroundColor(Color.parseColor("#008b08"));
-
-                    infoPagoText.setText("Tu pago ha sido registrado estas participando !!!");
-                } else {
-                    infoPagoLL.setBackgroundColor(Color.parseColor("#a92b00"));
-                    infoPagoText.setText("No se ha confirmado el pago.");
-                }
-
-            } else {
-                if ((data != null) && (data.hasExtra("mpException"))) {
-                    MPException mpException = JsonUtil.getInstance()
-                            .fromJson(data.getStringExtra("mpException"), MPException.class);
-                    // Manejá tus errores.
-                }
-            }
-        }
-    }
 }

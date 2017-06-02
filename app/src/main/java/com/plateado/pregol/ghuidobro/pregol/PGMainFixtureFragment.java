@@ -61,6 +61,7 @@ public class PGMainFixtureFragment extends Fragment {
     private ProgressDialog loading;
 
     View uno, dos, sendIcon, cuatro;
+    private SessionManager session;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,8 +80,9 @@ public class PGMainFixtureFragment extends Fragment {
         dos = fragmentView.findViewById(R.id.dos);
         cuatro = fragmentView.findViewById(R.id.cuatro);
 
+        session = new SessionManager(getActivity());
 
-        usuario = getActivity().getIntent().getStringExtra("mail");
+        usuario = session.getUserDetails().get("email");
 
         handler = new Handler();
 
