@@ -2,9 +2,6 @@ package com.plateado.pregol.ghuidobro.pregol;
 
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,15 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
-import com.mercadopago.core.MercadoPago;
-import com.mercadopago.exceptions.MPException;
-import com.mercadopago.model.Payment;
-import com.mercadopago.util.JsonUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,10 +27,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by ghuidobro on 4/12/17.
@@ -48,20 +35,12 @@ public class PGPrediccionesFragment extends Fragment {
 
     private ArrayList<PGFixture> mDataSet;
     private RecyclerView mRecyclerView;
-    private HashMap<String, String> prediccion ;
     private PagoViewAdapter mAdapter;
-    private String usuario;
     private ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
     private FABToolbarLayout morph;
     private FloatingActionButton fab;
-    private String sendMessage = "La prediccion no esta completa !";
-    private boolean isOKToSend = false;
     private ProgressDialog loading;
     private Handler handler;
-    private View infoPagoLL;
-    private TextView infoPagoText;
-    final Context context = getActivity();
-    private Button mbutton;
     private View fragmentView;
     View uno, dos, sendIcon, cuatro;
 
@@ -74,15 +53,9 @@ public class PGPrediccionesFragment extends Fragment {
         morph = (FABToolbarLayout) fragmentView.findViewById(R.id.fabtoolbar);
         sendIcon = fragmentView.findViewById(R.id.send_icon);
         fab = (FloatingActionButton) fragmentView.findViewById(R.id.fab);
-        infoPagoLL = fragmentView.findViewById(R.id.infoPagoLL);
-        infoPagoText = (TextView) fragmentView.findViewById(R.id.infoPagoText);
-
         uno = fragmentView.findViewById(R.id.uno);
         dos = fragmentView.findViewById(R.id.dos);
         cuatro = fragmentView.findViewById(R.id.cuatro);
-
-        usuario = getActivity().getIntent().getStringExtra("mail");
-
         handler = new Handler();
 
         // Layout Managers:
@@ -91,10 +64,9 @@ public class PGPrediccionesFragment extends Fragment {
         mDataSet = new ArrayList<PGFixture>();
 
         loadData();
-        prediccion = new HashMap<>();
 
         // Creating Adapter object
-        mAdapter = new PagoViewAdapter(getActivity(), itemPredictions,prediccion);
+        mAdapter = new PagoViewAdapter(getActivity(), itemPredictions);
 
 
         // Setting Mode to Single to reveal bottom View for one item in List
@@ -300,23 +272,15 @@ public class PGPrediccionesFragment extends Fragment {
         }//end of catch
 
     }//end of convertJSONArrayList
-
+/*
     private void sendData(){
 
         if(mAdapter.prediccion.size() == 15){
             prediccion = (HashMap<String, String>) mAdapter.prediccion;
             prediccion.put("fecha","19");
             prediccion.put("usuario",usuario);
-            isOKToSend = true;
-
-            for (Map.Entry<String, String> entry : prediccion.entrySet()) {
-                System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
-            }
-
 
             class AddFixture extends AsyncTask<Void,Void,String> {
-
-
 
                 @Override
                 protected void onPreExecute() {
@@ -343,12 +307,10 @@ public class PGPrediccionesFragment extends Fragment {
             AddFixture addFixture = new AddFixture();
             addFixture.execute();
 
-        }else{
-            isOKToSend = false;
         }
 
     }//end send data
-
+*/
     private class Task implements Runnable {
         @Override
         public void run() {

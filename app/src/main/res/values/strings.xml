@@ -36,8 +36,13 @@
     <string name="lbl_no_grid_columns">Number of grid columns</string>
     <string name="lbl_gallery_name">Gallery directory name</string>
     <string name="lbl_btn_save">Save</string>
+
+
     <string name="web_url">http://67.23.251.165/~jarol/coneccion.php</string>
     <string name="web_url_fixture">http://67.23.251.165/~jarol/fixture.php</string>
+    <string name="web_url_predicciones_usuario">http://67.23.251.165/~jarol/monygol/prediccionusuario.php</string>
+
+
     <string name="label_espera_datos">Estamos organizando los datos para mostrartelos</string>
     <string name="welcome_label">Para jugar es necesario registrarse</string>
 
