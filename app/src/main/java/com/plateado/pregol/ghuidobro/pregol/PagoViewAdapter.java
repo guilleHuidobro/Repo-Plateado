@@ -1,6 +1,8 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +21,6 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
 
     private Context mContext;
     private ArrayList<ItemPrediction> fixtureList;
-    private String resultado;
 
 
     public PagoViewAdapter(Context context, ArrayList<ItemPrediction> objects) {
@@ -39,22 +40,30 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
 
         viewHolder.equipoLocal.setText((item.getPgFixture().getEquipoLocal()));
         viewHolder.equipoVisita.setText((item.getPgFixture().getEquipoVisita()));
-        viewHolder.opcionEmpate.setText(("Vs"));
 
         int id = item.getEstado();
         switch(id) {
             case 0:
-                resultado="E";
+                viewHolder.resultadoBotonEmpate.setText("E");
+
+                viewHolder.resultadoBotonLocal.setText("");
+                viewHolder.resultadoBotonVisita.setText("");
                 break;
             case 1:
-                resultado="L";
+                viewHolder.resultadoBotonLocal.setText("L");
+
+                viewHolder.resultadoBotonVisita.setText("");
+                viewHolder.resultadoBotonEmpate.setText("");
                 break;
             case 2:
-                resultado="V";
+                viewHolder.resultadoBotonVisita.setText("V");
+
+                viewHolder.resultadoBotonLocal.setText("");
+                viewHolder.resultadoBotonEmpate.setText("");
                 break;
         }
 
-        viewHolder.resultadoBoton.setText(resultado);
+
 
         Picasso.with(mContext)
                 .load(item.getPgFixture().getImagenEquipoLocal().toString())
@@ -87,20 +96,20 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
         TextView equipoLocal;
         TextView equipoVisita;
-        TextView opcionEmpate;
         ImageView escudoLocal;
         ImageView escudoVisita;
-        Button resultadoBoton;
+        Button resultadoBotonLocal,resultadoBotonEmpate,resultadoBotonVisita;
 
 
         public SimpleViewHolder(View itemView) {
             super(itemView);
             equipoLocal = (TextView) itemView.findViewById(R.id.equipoLocal);
             equipoVisita = (TextView) itemView.findViewById(R.id.equipoVisita);
-            opcionEmpate = (TextView) itemView.findViewById(R.id.opcionEmpate);
             escudoLocal = (ImageView) itemView.findViewById(R.id.escudoLocal);
             escudoVisita = (ImageView) itemView.findViewById(R.id.escudoVisita);
-            resultadoBoton = (Button) itemView.findViewById(R.id.resultadoBoton);
+            resultadoBotonLocal = (Button) itemView.findViewById(R.id.resultado_boton_local);
+            resultadoBotonEmpate = (Button) itemView.findViewById(R.id.resultado_boton_empate);
+            resultadoBotonVisita = (Button) itemView.findViewById(R.id.resultado_boton_visita);
         }
     }
 

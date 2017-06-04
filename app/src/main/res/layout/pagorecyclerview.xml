@@ -21,6 +21,18 @@
             android:clickable="true"
             android:paddingBottom="60dp"
             android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/estado_prediccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/cardview_dark_background"
+            android:textStyle="bold"
+            android:text="Estado de la prediccion"
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"/>
     </LinearLayout>
 
     <com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout

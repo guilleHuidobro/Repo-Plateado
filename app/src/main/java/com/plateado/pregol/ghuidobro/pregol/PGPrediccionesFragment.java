@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
@@ -45,6 +46,8 @@ public class PGPrediccionesFragment extends Fragment {
     View uno, dos, sendIcon, cuatro;
     private boolean isPrediction = false;
     private ArrayList<MGPrediccionUsuario> mDataSetPrediccion;
+    private boolean isPredictionDone = false;
+    private TextView estadoPrediccionText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,16 +58,18 @@ public class PGPrediccionesFragment extends Fragment {
         morph = (FABToolbarLayout) fragmentView.findViewById(R.id.fabtoolbar);
         sendIcon = fragmentView.findViewById(R.id.send_icon);
         fab = (FloatingActionButton) fragmentView.findViewById(R.id.fab);
+        estadoPrediccionText = (TextView) fragmentView.findViewById(R.id.estado_prediccion);
         uno = fragmentView.findViewById(R.id.uno);
         dos = fragmentView.findViewById(R.id.dos);
         cuatro = fragmentView.findViewById(R.id.cuatro);
-        handler = new Handler();
 
+        estadoPrediccionText.setText(R.string.estado_prediccion_message);
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mDataSet = new ArrayList<PGFixture>();
         mDataSetPrediccion = new ArrayList<MGPrediccionUsuario>();
+        handler = new Handler();
 
         loadPrediccionData();
         loadData();
@@ -152,12 +157,15 @@ public class PGPrediccionesFragment extends Fragment {
         if(loading != null){
             loading.dismiss();
         }
-        if (mDataSet.isEmpty()) {
+        if (!isPredictionDone) {
             mRecyclerView.setVisibility(View.GONE);
             morph.setVisibility(View.GONE);
+            estadoPrediccionText.setVisibility(View.VISIBLE);
+
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
             morph.setVisibility(View.VISIBLE);
+            estadoPrediccionText.setVisibility(View.GONE);
         }
     }
 
@@ -266,13 +274,15 @@ public class PGPrediccionesFragment extends Fragment {
         }
         mAdapter.notifyDataSetChanged();
 
-        if (mDataSet.isEmpty()) {
+        if (!isPredictionDone) {
             mRecyclerView.setVisibility(View.GONE);
             morph.setVisibility(View.GONE);
+            estadoPrediccionText.setVisibility(View.VISIBLE);
 
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
             morph.setVisibility(View.VISIBLE);
+            estadoPrediccionText.setVisibility(View.GONE);
         }
     }
 
@@ -288,16 +298,6 @@ public class PGPrediccionesFragment extends Fragment {
                 JSONObject stateobj = list.getJSONObject(i);
                 mDataSet.add(new PGFixture(stateobj.getString("equipo_local"),stateobj.getString("equipo_visitante"),stateobj.getString("escudo_local"),stateobj.getString("escudo_visita"),stateobj.getString("id_partido")));
             }//end of for loop
-            /*
-            if (mDataSet.isEmpty()) {
-                mRecyclerView.setVisibility(View.GONE);
-                morph.setVisibility(View.GONE);
-
-            } else {
-                mRecyclerView.setVisibility(View.VISIBLE);
-                morph.setVisibility(View.VISIBLE);
-            }
-*/
         }catch(JSONException e){
             e.printStackTrace();
 
@@ -315,6 +315,9 @@ public class PGPrediccionesFragment extends Fragment {
                 mDataSetPrediccion.add(new MGPrediccionUsuario(stateobj.getString("fecha_fixture"),stateobj.getString("id_partido"),stateobj.getString("resultado"),stateobj.getString("usuario")));
             }//end of for loop
             isPrediction = true;
+            if(!mDataSetPrediccion.isEmpty()){
+                isPredictionDone = true;
+            }
 
         }catch(JSONException e){
             e.printStackTrace();
