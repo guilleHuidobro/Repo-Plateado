@@ -63,7 +63,6 @@ public class PGPrediccionesFragment extends Fragment {
         dos = fragmentView.findViewById(R.id.dos);
         cuatro = fragmentView.findViewById(R.id.cuatro);
 
-        estadoPrediccionText.setText(R.string.estado_prediccion_message);
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -242,12 +241,12 @@ public class PGPrediccionesFragment extends Fragment {
 
         @Override
         protected void onProgressUpdate(String... values) {
-            //Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_SHORT).show();
+
         }//end of onProgressUpdate
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-
+            estadoPrediccionText.setText(R.string.label_espera_datos);
             if(isPrediction) {
                 convertFixtureJSONtoArrayList(jsonObject);
                 setItemFixture();
@@ -317,6 +316,8 @@ public class PGPrediccionesFragment extends Fragment {
             isPrediction = true;
             if(!mDataSetPrediccion.isEmpty()){
                 isPredictionDone = true;
+            }else{
+                estadoPrediccionText.setText(R.string.estado_prediccion_message);
             }
 
         }catch(JSONException e){
