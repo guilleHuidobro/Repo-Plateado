@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -37,7 +36,7 @@ public class PGPrediccionesFragment extends Fragment {
 
     private ArrayList<PGFixture> mDataSet;
     private RecyclerView mRecyclerView;
-    private PagoViewAdapter mAdapter;
+    private PrediccionUsuarioViewAdapter mAdapter;
     private ArrayList<ItemPrediction> itemPredictions = new ArrayList<>();
     private FABToolbarLayout morph;
     private FloatingActionButton fab;
@@ -81,12 +80,12 @@ public class PGPrediccionesFragment extends Fragment {
         loadData();
 
         // Creating Adapter object
-        mAdapter = new PagoViewAdapter(getActivity(), itemPredictions);
+        mAdapter = new PrediccionUsuarioViewAdapter(getActivity(), itemPredictions);
 
 
         // Setting Mode to Single to reveal bottom View for one item in List
         // Setting Mode to Mutliple to reveal bottom Views for multile items in List
-        ((PagoViewAdapter) mAdapter).setMode(Attributes.Mode.Single);
+        ((PrediccionUsuarioViewAdapter) mAdapter).setMode(Attributes.Mode.Single);
 
         mRecyclerView.setAdapter(mAdapter);
 

@@ -14,14 +14,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.SimpleViewHolder> {
+public class PrediccionUsuarioViewAdapter extends RecyclerSwipeAdapter<PrediccionUsuarioViewAdapter.SimpleViewHolder> {
 
 
     private Context mContext;
     private ArrayList<ItemPrediction> fixtureList;
 
 
-    public PagoViewAdapter(Context context, ArrayList<ItemPrediction> objects) {
+    public PrediccionUsuarioViewAdapter(Context context, ArrayList<ItemPrediction> objects) {
         this.mContext = context;
         this.fixtureList = objects;
     }

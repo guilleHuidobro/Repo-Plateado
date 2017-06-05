@@ -25,7 +25,7 @@ public class MGMainActivity extends AppCompatActivity
     // Session Manager Class
     private SessionManager session;
     private AlertDialogManager alert = new AlertDialogManager();
-    private Boolean isFirstTime = true;
+    private String usuario;
 
 
     @Override
@@ -181,6 +181,19 @@ public class MGMainActivity extends AppCompatActivity
                         .fromJson(data.getStringExtra("payment"), Payment.class);
 
                 if (payment != null) {
+
+                    payment.getDescription();
+                    payment.getStatus();
+                    payment.getStatusDetail();
+                    payment.getTransactionAmount();
+
+                    if(session.getUserDetails() != null){
+                        usuario = session.getUserDetails().get("email");
+                    }
+
+                    MGPagoCreditoAsyncTask pagoCreditoAsyncTask = new MGPagoCreditoAsyncTask(String.valueOf(payment.getTransactionAmount()),usuario);
+                    pagoCreditoAsyncTask.execute();
+
                     Fragment fragment = null;
                     if(fragment != null){
                         fragment = new CreditosFragment();
