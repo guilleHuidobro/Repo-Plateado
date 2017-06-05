@@ -21,9 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
-            android:text="MonyCreditos:"
+            android:text="MonyCreditos"
             android:textSize="24dp"
             android:visibility="visible" />
     </LinearLayout>
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
             android:text="MonyCreditos ganados:"
             android:textSize="16dp"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
             android:text="Valor de 1 Mony:"
             android:textSize="16dp"
@@ -98,7 +98,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:textSize="16dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
             android:text="MonyCreditos Acumulados:"
             android:visibility="visible" />
@@ -127,7 +127,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:textSize="16dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
             android:text="Esta fecha:"/>
         <TextView

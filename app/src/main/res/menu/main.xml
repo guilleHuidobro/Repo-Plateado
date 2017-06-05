@@ -4,12 +4,12 @@
     <item
         android:id="@+id/action_resultados"
         android:orderInCategory="100"
-        android:title="Mis Resultados"
+        android:title="Resultados"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_creditos"
         android:orderInCategory="100"
-        android:title="Mis Creditos"
+        android:title="Creditos"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_ganadores"

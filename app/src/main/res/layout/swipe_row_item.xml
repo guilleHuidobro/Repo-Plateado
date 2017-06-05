@@ -21,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/app_tercer_color"
+            android:background="@color/app_contraste_segundo_color"
             android:gravity="center"
             android:text="Info Local"
             android:textColor="#fff" />
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/app_tercer_color"
+            android:background="@color/app_contraste_segundo_color"
             android:gravity="center"
             android:text="Estadisticas"
             android:textColor="#fff" />
@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/app_tercer_color"
+            android:background="@color/app_contraste_segundo_color"
             android:gravity="center"
             android:text="Info Visita"
             android:textColor="#fff" />
@@ -76,7 +76,7 @@
             android:layout_marginTop="0dp"
             android:gravity="center_horizontal"
             android:text="Desafiar"
-            android:textColor="@color/primary"
+            android:textColor="@color/label_dorado_desafiar"
             android:textSize="12sp" />
     </LinearLayout>
 

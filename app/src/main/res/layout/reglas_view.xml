@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:textColor="@color/app_tercer_color"
+            android:textColor="@color/app_text_primary_color"
             android:textStyle="bold"
             android:gravity="center"
             android:text="Reglas y Condiciones:"

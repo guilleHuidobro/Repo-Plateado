@@ -4,27 +4,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inicio"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconssoccerball24"
             android:title="Inicio" />
         <item
             android:id="@+id/nav_jugar"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconsstadium24"
             android:title="Fixture" />
         <item
             android:id="@+id/nav_predicciones"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconssoccer24"
             android:title="Predicciones" />
         <item
             android:id="@+id/nav_creditos"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconssoccerball24"
             android:title="Creditos" />
         <item
             android:id="@+id/nav_estadistica"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconssoccerball24"
             android:title="Estadisticas de MonyGol" />
         <item
             android:id="@+id/nav_reglas"
-            android:icon="@drawable/pelotaverdemenu24"
+            android:icon="@drawable/iconssoccerball24"
             android:title="Reglas de MonyGol" />
 
     </group>
