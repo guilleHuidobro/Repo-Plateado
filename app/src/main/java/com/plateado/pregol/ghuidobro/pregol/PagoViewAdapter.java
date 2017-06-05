@@ -1,8 +1,6 @@
 package com.plateado.pregol.ghuidobro.pregol;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,25 +43,29 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
         switch(id) {
             case 0:
                 viewHolder.resultadoBotonEmpate.setText("E");
+                viewHolder.resultadoBotonEmpate.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonEmpateApagado.setVisibility(View.GONE);
 
-                viewHolder.resultadoBotonLocal.setText("");
-                viewHolder.resultadoBotonVisita.setText("");
+                viewHolder.resultadoBotonLocalApagado.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonVisitaApagado.setVisibility(View.VISIBLE);
                 break;
             case 1:
                 viewHolder.resultadoBotonLocal.setText("L");
+                viewHolder.resultadoBotonLocal.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonLocalApagado.setVisibility(View.GONE);
 
-                viewHolder.resultadoBotonVisita.setText("");
-                viewHolder.resultadoBotonEmpate.setText("");
+                viewHolder.resultadoBotonEmpateApagado.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonVisitaApagado.setVisibility(View.VISIBLE);
                 break;
             case 2:
                 viewHolder.resultadoBotonVisita.setText("V");
+                viewHolder.resultadoBotonVisita.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonVisitaApagado.setVisibility(View.GONE);
 
-                viewHolder.resultadoBotonLocal.setText("");
-                viewHolder.resultadoBotonEmpate.setText("");
+                viewHolder.resultadoBotonLocalApagado.setVisibility(View.VISIBLE);
+                viewHolder.resultadoBotonEmpateApagado.setVisibility(View.VISIBLE);
                 break;
         }
-
-
 
         Picasso.with(mContext)
                 .load(item.getPgFixture().getImagenEquipoLocal().toString())
@@ -73,12 +75,10 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
                 .load(item.getPgFixture().getImagenEquipoVisita().toString())
                 .into(viewHolder.escudoVisita);
 
-
         // mItemManger is member in RecyclerSwipeAdapter Class
         mItemManger.bindView(viewHolder.itemView, position);
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -90,7 +90,6 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
         return R.id.swipe;
     }
 
-
     //  ViewHolder Class
 
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
@@ -98,8 +97,8 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
         TextView equipoVisita;
         ImageView escudoLocal;
         ImageView escudoVisita;
-        Button resultadoBotonLocal,resultadoBotonEmpate,resultadoBotonVisita;
-
+        Button resultadoBotonLocal,resultadoBotonEmpate,resultadoBotonVisita,
+        resultadoBotonLocalApagado,resultadoBotonEmpateApagado,resultadoBotonVisitaApagado;
 
         public SimpleViewHolder(View itemView) {
             super(itemView);
@@ -110,6 +109,10 @@ public class PagoViewAdapter extends RecyclerSwipeAdapter<PagoViewAdapter.Simple
             resultadoBotonLocal = (Button) itemView.findViewById(R.id.resultado_boton_local);
             resultadoBotonEmpate = (Button) itemView.findViewById(R.id.resultado_boton_empate);
             resultadoBotonVisita = (Button) itemView.findViewById(R.id.resultado_boton_visita);
+            resultadoBotonLocalApagado= (Button) itemView.findViewById(R.id.resultado_boton_local_apagado);
+            resultadoBotonEmpateApagado= (Button) itemView.findViewById(R.id.resultado_boton_empate_apagado);
+            resultadoBotonVisitaApagado= (Button) itemView.findViewById(R.id.resultado_boton_visita_apagado);
+
         }
     }
 
