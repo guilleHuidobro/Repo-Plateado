@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -48,6 +49,8 @@ public class PGPrediccionesFragment extends Fragment {
     private ArrayList<MGPrediccionUsuario> mDataSetPrediccion;
     private boolean isPredictionDone = false;
     private TextView estadoPrediccionText;
+    private SessionManager session;
+    private String usuario;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,6 +69,10 @@ public class PGPrediccionesFragment extends Fragment {
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        session = new SessionManager(getActivity());
+        if(session.getUserDetails() != null){
+            usuario = session.getUserDetails().get("email");
+        }
         mDataSet = new ArrayList<PGFixture>();
         mDataSetPrediccion = new ArrayList<MGPrediccionUsuario>();
         handler = new Handler();
@@ -184,11 +191,36 @@ public class PGPrediccionesFragment extends Fragment {
 
     // load initial data
     public void loadPrediccionData() {
-        String urlString = getString(R.string.web_url_predicciones_usuario);
+        final String urlString = getString(R.string.web_url_predicciones_usuario);
         try{
-            URL url = new URL(urlString);
-            StateTask stateTask = new StateTask();
-            stateTask.execute(url);
+            class AddFixture extends AsyncTask<Void,Void,String> {
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    new Thread(new Task()).start();
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    try {
+                        JSONObject jsonObj = new JSONObject(s);
+                        convertPredictionJSONtoArrayList(jsonObj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendGetRequestParam(urlString, usuario);
+                    return res;
+                }
+            }
+            AddFixture addFixture = new AddFixture();
+            addFixture.execute();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -365,6 +397,7 @@ public class PGPrediccionesFragment extends Fragment {
 
     }//end send data
 */
+
     private class Task implements Runnable {
         @Override
         public void run() {
@@ -376,7 +409,7 @@ public class PGPrediccionesFragment extends Fragment {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    loading = ProgressDialog.show(getActivity(), "Enviando...", "Un momento...", false, false);
+                    //loading = ProgressDialog.show(getActivity(), "Enviando...", "Un momento...", false, false);
                 }
             });
         }
